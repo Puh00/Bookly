@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.bookly.databinding.FragmentMyBooksBinding
+import com.example.bookly.databinding.FragmentMyReviewsBinding
 
 class MyReviewsFragment: Fragment() {
 
@@ -17,7 +18,7 @@ class MyReviewsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentMyBooksBinding>(inflater,
+        val binding = DataBindingUtil.inflate<FragmentMyReviewsBinding>(inflater,
             R.layout.fragment_my_reviews,container,false)
 
         binding.myBooksButton.setOnClickListener { view: View ->
