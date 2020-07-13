@@ -1,3 +1,5 @@
+package booklybackend;
+
 import java.util.Date;
 
 public class Review {
