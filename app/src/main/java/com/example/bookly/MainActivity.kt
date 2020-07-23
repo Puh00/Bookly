@@ -3,6 +3,8 @@ package com.example.bookly
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.bookly.databinding.ActivityMainBinding
@@ -10,22 +12,24 @@ import com.example.bookly.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var drawerLayout: DrawerLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-
-       /* val homeFragment = HomeFragment()
-        val myBooksFragment = MyBooksFragment()
-        val myReviewsFragment = MyReviewsFragment()
-
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.id.bottom_navigation)
-
-*/
 
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val navController: NavController = this.findNavController(R.id.myNavHostFragment)
+        drawerLayout = binding.drawerLayout
 
-        NavigationUI.setupWithNavController(binding.navView, this.findNavController(R.id.myNavHostFragment))
+        NavigationUI.setupWithNavController(binding.navView, navController)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
 
