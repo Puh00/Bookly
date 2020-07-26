@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    public fun yolo(){
+    public fun openDrawer(){
         drawerLayout.openDrawer(GravityCompat.START)
     }
 
