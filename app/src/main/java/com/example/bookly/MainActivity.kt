@@ -14,7 +14,7 @@ import com.example.bookly.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    public lateinit var drawerLayout: DrawerLayout
+    lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,19 +24,7 @@ class MainActivity : AppCompatActivity() {
         val navController: NavController = this.findNavController(R.id.myNavHostFragment)
         drawerLayout = binding.drawerLayout
 
-/*
-        // Creates a set of top level destinations and saves it in the appBarConfiguration
-        val topLevelDestinations = setOf(R.id.homeFragment, R.id.myBooksFragment, R.id.myReviewsFragment)
-        appBarConfiguration = AppBarConfiguration.Builder(topLevelDestinations).setDrawerLayout(drawerLayout).build()
-
-        // Setup side panel
         NavigationUI.setupWithNavController(binding.navView, navController)
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
-*/
-
-        NavigationUI.setupWithNavController(binding.navView, navController)
-
-
     }
 
     public fun openDrawer(){

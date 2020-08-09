@@ -15,6 +15,21 @@
         <action
             android:id="@+id/action_homeFragment_to_myReviewsFragment"
             app:destination="@id/myReviewsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addABookFragment"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addABookFragment2"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_writeAReviewFragment"
+            app:destination="@id/writeAReviewFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/myBooksFragment"
@@ -27,6 +42,21 @@
         <action
             android:id="@+id/action_myBooksFragment_to_myReviewsFragment"
             app:destination="@id/myReviewsFragment" />
+        <action
+            android:id="@+id/action_myBooksFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment" />
+        <action
+            android:id="@+id/action_myBooksFragment_to_addABookFragment"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_myBooksFragment_to_addABookFragment2"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_myBooksFragment_to_writeAReviewFragment"
+            app:destination="@id/writeAReviewFragment" />
+        <action
+            android:id="@+id/action_myBooksFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/myReviewsFragment"
@@ -39,5 +69,64 @@
         <action
             android:id="@+id/action_myReviewsFragment_to_myBooksFragment"
             app:destination="@id/myBooksFragment" />
+        <action
+            android:id="@+id/action_myReviewsFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment" />
+        <action
+            android:id="@+id/action_myReviewsFragment_to_addABookFragment"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_myReviewsFragment_to_addABookFragment2"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_myReviewsFragment_to_writeAReviewFragment"
+            app:destination="@id/writeAReviewFragment" />
+        <action
+            android:id="@+id/action_myReviewsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.example.bookly.MyProfileFragment"
+        android:label="MyProfileFragment"
+        tools:layout="@layout/fragment_my_profile"
+    >
+        <action
+            android:id="@+id/action_myProfileFragment_to_myReviewsFragment"
+            app:destination="@id/myReviewsFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_myBooksFragment"
+            app:destination="@id/myBooksFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_addABookFragment"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_addABookFragment2"
+            app:destination="@id/addABookFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_writeAReviewFragment"
+            app:destination="@id/writeAReviewFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addABookFragment"
+        android:name="com.example.bookly.AddABookFragment"
+        android:label="AddABookFragment"
+        tools:layout="@layout/fragment_add_a_book"/>
+    <fragment
+        android:id="@+id/writeAReviewFragment"
+        android:name="com.example.bookly.WriteAReviewFragment"
+        android:label="WriteAReviewFragment"
+        tools:layout="@layout/fragment_write_a_review"/>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.bookly.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings"/>
+
 </navigation>

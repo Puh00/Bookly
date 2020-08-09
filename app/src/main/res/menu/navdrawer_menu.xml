@@ -10,4 +10,16 @@
     <item
         android:id="@+id/myReviewsFragment"
         android:title="My Reviews" />
+    <item
+        android:id="@+id/myProfileFragment"
+        android:title="My Profile" />
+    <item
+        android:id="@+id/addABookFragment"
+        android:title="Add a book" />
+    <item
+        android:id="@+id/writeAReviewFragment"
+        android:title="Write a review" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="Settings" />
 </menu>
