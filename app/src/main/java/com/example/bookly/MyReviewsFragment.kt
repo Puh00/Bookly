@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.bookly.databinding.FragmentMyBooksBinding
 import com.example.bookly.databinding.FragmentMyReviewsBinding
+import kotlinx.android.synthetic.main.appbar.view.*
 
-class MyReviewsFragment: Fragment() {
+class MyReviewsFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -18,9 +18,23 @@ class MyReviewsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentMyReviewsBinding>(inflater,
-            R.layout.fragment_my_reviews,container,false)
+        val binding = DataBindingUtil.inflate<FragmentMyReviewsBinding>(
+            inflater,
+            R.layout.fragment_my_reviews, container, false
+        )
 
+        initBottomNav(binding)
+        initAppBar(binding)
+
+        return binding.root
+    }
+
+    private fun initAppBar(binding: FragmentMyReviewsBinding) {
+        val hamburgerButton = binding.titlebar.hamburgerBtn
+        hamburgerButton.setOnClickListener { (activity as MainActivity).openDrawer() }
+    }
+
+    private fun initBottomNav(binding: FragmentMyReviewsBinding) {
         binding.myBooksButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_myReviewsFragment_to_myBooksFragment)
         }
@@ -28,7 +42,5 @@ class MyReviewsFragment: Fragment() {
         binding.homeButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_myReviewsFragment_to_homeFragment)
         }
-
-        return binding.root
     }
 }

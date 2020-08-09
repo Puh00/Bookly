@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -23,6 +22,18 @@ class HomeFragment : Fragment() {
             R.layout.fragment_home, container, false
         )
 
+        initBottomNav(binding)
+        initAppBar(binding)
+
+        return binding.root
+    }
+
+    private fun initAppBar(binding: FragmentHomeBinding) {
+        val hamburgerButton = binding.titlebar.hamburgerBtn
+        hamburgerButton.setOnClickListener { (activity as MainActivity).openDrawer() }
+    }
+
+    private fun initBottomNav(binding: FragmentHomeBinding) {
         binding.myBooksButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_homeFragment_to_myBooksFragment)
         }
@@ -30,11 +41,6 @@ class HomeFragment : Fragment() {
         binding.reviewsButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_homeFragment_to_myReviewsFragment)
         }
-
-        val PekoraISGod: Button = binding.titlebar.hamburgerBtn
-        PekoraISGod.setOnClickListener {             (activity as MainActivity?)?.openDrawer()
-        }
-        return binding.root
     }
 
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/homeFragment">
 
     <fragment
@@ -89,8 +90,7 @@
         android:id="@+id/myProfileFragment"
         android:name="com.example.bookly.MyProfileFragment"
         android:label="MyProfileFragment"
-        tools:layout="@layout/fragment_my_profile"
-    >
+        tools:layout="@layout/fragment_my_profile">
         <action
             android:id="@+id/action_myProfileFragment_to_myReviewsFragment"
             app:destination="@id/myReviewsFragment" />
@@ -117,16 +117,16 @@
         android:id="@+id/addABookFragment"
         android:name="com.example.bookly.AddABookFragment"
         android:label="AddABookFragment"
-        tools:layout="@layout/fragment_add_a_book"/>
+        tools:layout="@layout/fragment_add_a_book" />
     <fragment
         android:id="@+id/writeAReviewFragment"
         android:name="com.example.bookly.WriteAReviewFragment"
         android:label="WriteAReviewFragment"
-        tools:layout="@layout/fragment_write_a_review"/>
+        tools:layout="@layout/fragment_write_a_review" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.bookly.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/fragment_settings"/>
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>

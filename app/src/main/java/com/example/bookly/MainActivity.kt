@@ -11,7 +11,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.bookly.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var drawerLayout: DrawerLayout
@@ -20,7 +19,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val binding =
+            DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         val navController: NavController = this.findNavController(R.id.myNavHostFragment)
         drawerLayout = binding.drawerLayout
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.navView, navController)
     }
 
-    public fun openDrawer(){
+    public fun openDrawer() {
         drawerLayout.openDrawer(GravityCompat.START)
     }
 

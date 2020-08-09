@@ -1,60 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<RelativeLayout
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/design_default_color_surface">
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_bright">
 
-        <Button
-            android:id="@+id/home_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="135sp"
+        <include
+            android:id="@+id/titlebar"
+            layout="@layout/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/my_books_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_alignParentBottom="true"
+            android:background="@color/design_default_color_surface">
 
-        <Button
-            android:id="@+id/my_books_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="135sp"
+            <Button
+                android:id="@+id/home_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="135sp"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/my_books_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/my_books_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="135sp"
+                android:layout_height="wrap_content"
+                android:text="My Books"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/reviews_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/home_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/reviews_button"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="135sp"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/my_books_button"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My Books"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/reviews_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/home_button"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerInParent="true"
+            android:text="My Books Fragment"
+            android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/reviews_button"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="135sp"
-            android:layout_height="wrap_content"
-            android:text="Reviews"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/my_books_button"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Books Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
-
-</RelativeLayout>
+    </RelativeLayout>
 </layout>
