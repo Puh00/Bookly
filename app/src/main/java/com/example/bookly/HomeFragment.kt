@@ -31,11 +31,6 @@ class HomeFragment : Fragment() {
             view.findNavController().navigate(R.id.action_homeFragment_to_myReviewsFragment)
         }
 
-        val tempButton: Button = binding.tempoBtn
-        tempButton.setOnClickListener {
-            (activity as MainActivity?)?.openDrawer()
-        }
-
         val PekoraISGod: Button = binding.titlebar.hamburgerBtn
         PekoraISGod.setOnClickListener {             (activity as MainActivity?)?.openDrawer()
         }
