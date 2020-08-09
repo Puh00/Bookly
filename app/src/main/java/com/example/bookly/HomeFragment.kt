@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.bookly.databinding.FragmentHomeBinding
+import kotlinx.android.synthetic.main.appbar.view.*
 
 class HomeFragment : Fragment() {
 
@@ -33,6 +34,10 @@ class HomeFragment : Fragment() {
         val tempButton: Button = binding.tempoBtn
         tempButton.setOnClickListener {
             (activity as MainActivity?)?.openDrawer()
+        }
+
+        val PekoraISGod: Button = binding.titlebar.hamburgerBtn
+        PekoraISGod.setOnClickListener {             (activity as MainActivity?)?.openDrawer()
         }
         return binding.root
     }

@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         val navController: NavController = this.findNavController(R.id.myNavHostFragment)
         drawerLayout = binding.drawerLayout
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
     }
