@@ -7,10 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bookly.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.appbar.view.*
 
 class HomeFragment : Fragment() {
+
+    val s1: List<String> = listOf("PekoIch", "PekoNi", "PekoSan", "Pekonya", "Pekwu")
+    val s2: List<String> = listOf("Peko laugh", "Peko Sad", "Peko hip", "Peko nani", "Peko uwu")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +28,15 @@ class HomeFragment : Fragment() {
 
         initBottomNav(binding)
         initAppBar(binding)
+
+
+        //Test recyclerview
+        var recyclerView = binding.recyclerView
+        var eventAdapter: EventAdapter = EventAdapter(activity!!.applicationContext, s1, s2)
+
+        recyclerView.adapter = eventAdapter
+        recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
+
 
         return binding.root
     }
