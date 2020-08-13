@@ -30,7 +30,7 @@ class MyReviewsFragment : Fragment() {
     }
 
     private fun initAppBar(binding: FragmentMyReviewsBinding) {
-        val hamburgerButton = binding.titlebar.hamburgerBtn
+        val hamburgerButton = binding.titlebar.hamburgerButton
         hamburgerButton.setOnClickListener { (activity as MainActivity).openDrawer() }
     }
 

@@ -15,13 +15,14 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        val navController: NavController = this.findNavController(R.id.myNavHostFragment)
+        navController = this.findNavController(R.id.myNavHostFragment)
         drawerLayout = binding.drawerLayout
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
 

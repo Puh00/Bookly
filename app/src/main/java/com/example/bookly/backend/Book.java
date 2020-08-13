@@ -1,6 +1,6 @@
 package com.example.bookly.backend;
 
-import android.media.Image;
+import android.graphics.drawable.Drawable;
 
 public class Book {
 
@@ -9,7 +9,7 @@ public class Book {
     private String description;
     private String edition;
     private short numberOfPages;
-    private Image coverImage;
+    private Drawable coverImage;
 
     public String getTitle() {
         return title;
@@ -51,11 +51,11 @@ public class Book {
         this.numberOfPages = numberOfPages;
     }
 
-    public Image getCoverImage() {
+    public Drawable getCoverImage() {
         return coverImage;
     }
 
-    public void setCoverImage(Image coverImage) {
+    public void setCoverImage(Drawable coverImage) {
         this.coverImage = coverImage;
     }
 }
