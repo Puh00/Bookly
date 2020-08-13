@@ -1,5 +1,7 @@
 package com.example.bookly.backend;
 
+import android.media.Image;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +38,9 @@ public class BooklyDataHandler {
     // booklybackend.Book logic
     //================================================================================
 
-    /*public void addBook(String title, String author, String description, String edition, short numberOfPages, Image coverImage){
-        booklybackend.Book temporaryBook = new booklybackend.Book();
+    public void addBook(String title, String author, String description, String edition, short numberOfPages, Image coverImage){
+
+        Book temporaryBook = new Book();
         temporaryBook.setTitle(title);
         temporaryBook.setDescription(description);
         temporaryBook.setEdition(edition);
@@ -47,11 +50,11 @@ public class BooklyDataHandler {
         books.add(temporaryBook);
     }
 
-    public void removeBook(booklybackend.Book book){
+    public void removeBook(Book book){
         books.remove(book);
     }
 
-    public void editBook(booklybackend.Book book, String title, String author, String description, String edition, short numberOfPages, Image coverImage){
+    public void editBook(Book book, String title, String author, String description, String edition, short numberOfPages, Image coverImage){
         if(!author.equals(""))
             book.setAuthor(author);
 
@@ -66,7 +69,7 @@ public class BooklyDataHandler {
 
         if (coverImage != null)
             book.setCoverImage(coverImage);
-    }*/
+    }
 
 
 
