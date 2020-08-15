@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 
 public class User {
 
-    private String userName = "";
+    private String userName = "PEKORA";
     private String password = "";
     private Drawable profilePicture;
 
