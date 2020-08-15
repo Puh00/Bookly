@@ -15,6 +15,26 @@ public class BooklyDataHandler {
 
     private BooklyDataHandler() {}
 
+    public int numberOfBooks(){
+        return books.size();
+    }
+
+    public String getUserName() {
+        return user.getUserName();
+    }
+
+    public void setUserName(String username){
+        user.setUserName(username);
+    }
+
+    public Drawable getProfilePicture(){
+        return user.getProfilePicture();
+    }
+
+    public void setProfilePicture(Drawable profilePicture){
+        user.setProfilePicture(profilePicture);
+    }
+
     private synchronized static void createInstance() {
         if (instance == null) {
             instance = new BooklyDataHandler();
