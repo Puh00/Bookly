@@ -4,32 +4,27 @@ import java.util.Date;
 
 public class Review {
 
-    private final User user;
     private final Book book;
-    private byte rating;
+    private float rating;
     private String comment;
     private final Date date;
 
-    public Review(User user, Book book, byte rating) {
-        this.user = user;
+    public Review(Book book, float rating, String comment, Date reviewDate) {
         this.book = book;
         this.rating = rating;
-        date = new Date();
-    }
-
-    public User getUser() {
-        return user;
+        this.comment = comment;
+        date = reviewDate;
     }
 
     public Book getBook() {
         return book;
     }
 
-    public byte getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(byte rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 

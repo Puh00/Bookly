@@ -75,7 +75,6 @@ class AddABookFragment : Fragment() {
 
     private fun previousFragment(){
         this.findNavController().popBackStack()
-
     }
 
     private fun addBook() {
