@@ -31,10 +31,10 @@ class HomeFragment : Fragment() {
 
 
         //Test recyclerview
-        var recyclerView = binding.recyclerView
-        var eventAdapter: EventAdapter = EventAdapter(activity!!.applicationContext, s1, s2)
+        var recyclerView = binding.homePageRecyclerView
+        var homePageAdapter: HomePageAdapter = HomePageAdapter(activity!!.applicationContext, s1, s2)
 
-        recyclerView.adapter = eventAdapter
+        recyclerView.adapter = homePageAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
 
 

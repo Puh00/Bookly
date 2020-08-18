@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -27,9 +28,15 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
 
         NavigationUI.setupWithNavController(binding.navView, navController)
+
+        repeat(12){
+            BooklyDataHandler.getInstance().addBook("Rookie", "Josh", "", "",
+                0, null)
+        }
+
     }
 
-    public fun openDrawer() {
+    fun openDrawer() {
         drawerLayout.openDrawer(GravityCompat.START)
     }
 

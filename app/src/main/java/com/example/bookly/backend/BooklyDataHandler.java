@@ -18,6 +18,7 @@ public class BooklyDataHandler {
     private BooklyDataHandler() {
     }
 
+
     private synchronized static void createInstance() {
         if (instance == null) {
             instance = new BooklyDataHandler();
@@ -110,5 +111,13 @@ public class BooklyDataHandler {
 
     public void setCurrentBookForReview(Book currentBookForReview) {
         this.currentBookForReview = currentBookForReview;
+    }
+
+    //================================================================================
+    // MyBooksFragment.kt
+    //================================================================================
+
+    public List<Book> getBooks() {
+        return books;
     }
 }
