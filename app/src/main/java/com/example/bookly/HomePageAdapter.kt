@@ -8,17 +8,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EventAdapter(ct: Context, private val s1: List<String>, private val s2: List<String>): RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
+class HomePageAdapter(var ct: Context, private val s1: List<String>, private val s2: List<String>): RecyclerView.Adapter<HomePageAdapter.EventViewHolder>() {
 
     var context: Context = ct
     var data1: List<String> = s1
     var data2: List<String> = s2
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): EventAdapter.EventViewHolder {
+    ): HomePageAdapter.EventViewHolder {
         var inflater: LayoutInflater = LayoutInflater.from(context)
         var view: View = inflater.inflate(R.layout.event_item, parent, false)
         return EventViewHolder(view)
@@ -28,7 +27,7 @@ class EventAdapter(ct: Context, private val s1: List<String>, private val s2: Li
         return data1.size
     }
 
-    override fun onBindViewHolder(holder: EventAdapter.EventViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomePageAdapter.EventViewHolder, position: Int) {
         holder.text1.text = data1[position]
         holder.text2.text = data2[position]
         holder.image.setImageResource(R.drawable.pekora_peko)
@@ -38,6 +37,5 @@ class EventAdapter(ct: Context, private val s1: List<String>, private val s2: Li
         var text1: TextView = itemView.findViewById(R.id.myText1)
         var text2: TextView = itemView.findViewById(R.id.myText2)
         var image: ImageView = itemView.findViewById(R.id.programmingImage)
-
     }
 }

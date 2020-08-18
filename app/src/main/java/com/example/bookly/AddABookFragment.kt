@@ -19,7 +19,7 @@ class AddABookFragment : Fragment() {
 
     lateinit var binding: FragmentAddABookBinding
 
-    val REQUEST_CODE = 100
+    private val REQUEST_CODE = 100
 
 
     override fun onCreateView(
@@ -75,7 +75,6 @@ class AddABookFragment : Fragment() {
 
     private fun previousFragment(){
         this.findNavController().popBackStack()
-
     }
 
     private fun addBook() {
