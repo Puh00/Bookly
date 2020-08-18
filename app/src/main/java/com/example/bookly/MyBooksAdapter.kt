@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookly.backend.Book
+import com.example.bookly.backend.BooklyDataHandler
+
 
 class MyBooksAdapter(var ct: Context, var bookData: List<Book>) :
     RecyclerView.Adapter<MyBooksAdapter.BookViewHolder>() {
@@ -30,10 +34,17 @@ class MyBooksAdapter(var ct: Context, var bookData: List<Book>) :
         }
         holder.book_image.setImageDrawable(bookData[position].coverImage)
         holder.book_title.text = bookData[position].title
+
+        holder.cardView.setOnClickListener {view: View ->
+            BooklyDataHandler.getInstance().currentBookFromMyBooks = bookData[position]
+            view.findNavController().navigate(R.id.action_myBooksFragment_to_bookFragment)
+        }
+
     }
 
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var book_title: TextView = itemView.findViewById(R.id.myBooks_book_title)
         var book_image: ImageView = itemView.findViewById(R.id.myBooks_book_image)
+        var cardView: CardView = itemView.findViewById(R.id.myBooks_cardView)
     }
 }

@@ -14,6 +14,7 @@ public class BooklyDataHandler {
     private List<UserBookStatus> bookStatuses;
     private List<Book> books;
     private Book currentBookForReview;
+    private Book currentBookFromMyBooks;
 
     private BooklyDataHandler() {
     }
@@ -46,6 +47,7 @@ public class BooklyDataHandler {
 
         Book temporaryBook = new Book();
         temporaryBook.setTitle(title);
+        temporaryBook.setAuthor(author);
         temporaryBook.setDescription(description);
         temporaryBook.setEdition(edition);
         temporaryBook.setNumberOfPages(numberOfPages);
@@ -119,5 +121,13 @@ public class BooklyDataHandler {
 
     public List<Book> getBooks() {
         return books;
+    }
+
+    public Book getCurrentBookFromMyBooks() {
+        return currentBookFromMyBooks;
+    }
+
+    public void setCurrentBookFromMyBooks(Book currentBookFromMyBooks) {
+        this.currentBookFromMyBooks = currentBookFromMyBooks;
     }
 }

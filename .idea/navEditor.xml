@@ -20,6 +20,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="bookFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-607" />
+                            <option name="y" value="581" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
@@ -52,6 +64,11 @@
                               </value>
                             </entry>
                             <entry key="action_homeFragment_to_myReviewsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_homeFragment_to_settingsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -102,6 +119,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_myBooksFragment_to_settingsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_myBooksFragment_to_writeAReviewFragment">
                               <value>
                                 <LayoutPositions />
@@ -144,6 +166,11 @@
                               </value>
                             </entry>
                             <entry key="action_myProfileFragment_to_myReviewsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_myProfileFragment_to_settingsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -194,6 +221,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_myReviewsFragment_to_settingsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_myReviewsFragment_to_writeAReviewFragment">
                               <value>
                                 <LayoutPositions />
@@ -209,8 +241,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="253" />
-                            <option name="y" value="566" />
+                            <option name="x" value="241" />
+                            <option name="y" value="582" />
                           </Point>
                         </option>
                       </LayoutPositions>

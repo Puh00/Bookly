@@ -29,12 +29,14 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(binding.navView, navController)
 
+        hardCodedData()
+    }
+
+    private fun hardCodedData() {
         repeat(12){
             BooklyDataHandler.getInstance().addBook("Rookie", "Josh", "", "",
                 0, null)
-        }
-
-    }
+        }    }
 
     fun openDrawer() {
         drawerLayout.openDrawer(GravityCompat.START)
