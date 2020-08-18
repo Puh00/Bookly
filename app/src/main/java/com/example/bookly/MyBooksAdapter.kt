@@ -29,13 +29,14 @@ class MyBooksAdapter(var ct: Context, var bookData: List<Book>) :
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        if(bookData[position].coverImage == null){
-            bookData[position].coverImage = AppCompatResources.getDrawable(ct, R.drawable.no_cover_image)
+        if (bookData[position].coverImage == null) {
+            bookData[position].coverImage =
+                AppCompatResources.getDrawable(ct, R.drawable.no_cover_image)
         }
         holder.book_image.setImageDrawable(bookData[position].coverImage)
         holder.book_title.text = bookData[position].title
 
-        holder.cardView.setOnClickListener {view: View ->
+        holder.cardView.setOnClickListener { view: View ->
             BooklyDataHandler.getInstance().currentBookFromMyBooks = bookData[position]
             view.findNavController().navigate(R.id.action_myBooksFragment_to_bookFragment)
         }

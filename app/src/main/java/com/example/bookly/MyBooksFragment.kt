@@ -48,7 +48,8 @@ class MyBooksFragment : Fragment() {
 
     private fun initRecyclerView(binding: FragmentMyBooksBinding) {
         var recyclerView = binding.myBooksRecyclerView
-        var myBooksAdapter: MyBooksAdapter = MyBooksAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().books)
+        var myBooksAdapter: MyBooksAdapter =
+            MyBooksAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().books)
         recyclerView.adapter = myBooksAdapter
         recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext, 3)
     }

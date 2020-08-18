@@ -40,25 +40,6 @@
                 android:text="Author" />
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Rating"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:numStars="5"
-                android:stepSize="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"/>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -69,11 +50,11 @@
                 android:id="@+id/fragmentBook_description"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:ems="10"
-                android:hint="Description of the book..."
+                android:layout_marginTop="10dp"
                 android:background="@android:color/white"
+                android:ems="10"
                 android:gravity="top"
-                android:layout_marginTop="10dp"/>
+                android:hint="Description of the book..." />
 
 
         </LinearLayout>
