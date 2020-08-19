@@ -28,6 +28,7 @@ class MyBooksFragment : Fragment() {
         initBottomNav(binding)
         initAppBar(binding)
         initRecyclerView(binding)
+        initFloatingActionBar(binding)
 
         return binding.root
     }
@@ -59,5 +60,11 @@ class MyBooksFragment : Fragment() {
             )
         recyclerView.adapter = booksAdapter
         recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext, 3)
+    }
+
+    private fun initFloatingActionBar(binding: FragmentMyBooksBinding) {
+        binding.myBooksFloatingActionButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_myBooksFragment_to_addABookFragment)
+        }
     }
 }

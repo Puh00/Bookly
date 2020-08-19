@@ -23,9 +23,6 @@
             android:id="@+id/action_homeFragment_to_addABookFragment"
             app:destination="@id/addABookFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_addABookFragment2"
-            app:destination="@id/addABookFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_writeAReviewFragment"
             app:destination="@id/writeAReviewFragment" />
         <action
@@ -48,9 +45,6 @@
             app:destination="@id/myProfileFragment" />
         <action
             android:id="@+id/action_myBooksFragment_to_addABookFragment"
-            app:destination="@id/addABookFragment" />
-        <action
-            android:id="@+id/action_myBooksFragment_to_addABookFragment2"
             app:destination="@id/addABookFragment" />
         <action
             android:id="@+id/action_myBooksFragment_to_writeAReviewFragment"
@@ -80,9 +74,6 @@
             android:id="@+id/action_myReviewsFragment_to_addABookFragment"
             app:destination="@id/addABookFragment" />
         <action
-            android:id="@+id/action_myReviewsFragment_to_addABookFragment2"
-            app:destination="@id/addABookFragment" />
-        <action
             android:id="@+id/action_myReviewsFragment_to_writeAReviewFragment"
             app:destination="@id/writeAReviewFragment" />
         <action
@@ -105,9 +96,6 @@
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_myProfileFragment_to_addABookFragment"
-            app:destination="@id/addABookFragment" />
-        <action
-            android:id="@+id/action_myProfileFragment_to_addABookFragment2"
             app:destination="@id/addABookFragment" />
         <action
             android:id="@+id/action_myProfileFragment_to_writeAReviewFragment"
