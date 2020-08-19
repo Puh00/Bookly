@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bookly.adapter.HomePageAdapter
 import com.example.bookly.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.appbar.view.*
 
@@ -32,7 +33,12 @@ class HomeFragment : Fragment() {
 
         //Test recyclerview
         var recyclerView = binding.homePageRecyclerView
-        var homePageAdapter: HomePageAdapter = HomePageAdapter(activity!!.applicationContext, s1, s2)
+        var homePageAdapter: HomePageAdapter =
+            HomePageAdapter(
+                activity!!.applicationContext,
+                s1,
+                s2
+            )
 
         recyclerView.adapter = homePageAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
