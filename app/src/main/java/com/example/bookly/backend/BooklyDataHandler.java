@@ -15,6 +15,7 @@ public class BooklyDataHandler {
     private List<Book> books;
     private Book currentBookForReview;
     private Book currentBookFromMyBooks;
+    private boolean recyclerViewOnMyBooks;
 
     private BooklyDataHandler() {
     }
@@ -129,5 +130,13 @@ public class BooklyDataHandler {
 
     public void setCurrentBookFromMyBooks(Book currentBookFromMyBooks) {
         this.currentBookFromMyBooks = currentBookFromMyBooks;
+    }
+
+    public boolean isRecyclerViewOnMyBooks() {
+        return recyclerViewOnMyBooks;
+    }
+
+    public void setRecyclerViewOnMyBooks(boolean recyclerViewOnMyBooks) {
+        this.recyclerViewOnMyBooks = recyclerViewOnMyBooks;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.bookly
+package com.example.bookly.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bookly.R
 
 class HomePageAdapter(var ct: Context, private val s1: List<String>, private val s2: List<String>): RecyclerView.Adapter<HomePageAdapter.EventViewHolder>() {
 
@@ -17,7 +18,7 @@ class HomePageAdapter(var ct: Context, private val s1: List<String>, private val
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomePageAdapter.EventViewHolder {
+    ): EventViewHolder {
         var inflater: LayoutInflater = LayoutInflater.from(context)
         var view: View = inflater.inflate(R.layout.event_item, parent, false)
         return EventViewHolder(view)
@@ -27,7 +28,7 @@ class HomePageAdapter(var ct: Context, private val s1: List<String>, private val
         return data1.size
     }
 
-    override fun onBindViewHolder(holder: HomePageAdapter.EventViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         holder.text1.text = data1[position]
         holder.text2.text = data2[position]
         holder.image.setImageResource(R.drawable.pekora_peko)

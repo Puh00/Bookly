@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.bookly.adapter.BooksAdapter
 import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.databinding.FragmentMyBooksBinding
 import kotlinx.android.synthetic.main.appbar.view.*
@@ -27,6 +28,7 @@ class MyBooksFragment : Fragment() {
         initBottomNav(binding)
         initAppBar(binding)
         initRecyclerView(binding)
+        initFloatingActionBar(binding)
 
         return binding.root
     }
@@ -47,10 +49,22 @@ class MyBooksFragment : Fragment() {
     }
 
     private fun initRecyclerView(binding: FragmentMyBooksBinding) {
-        var recyclerView = binding.myBooksRecyclerView
-        var myBooksAdapter: MyBooksAdapter =
-            MyBooksAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().books)
-        recyclerView.adapter = myBooksAdapter
+        //To differentiate myBooksFragment and chooseBookFragment
+        BooklyDataHandler.getInstance().isRecyclerViewOnMyBooks = true
+
+        val recyclerView = binding.myBooksRecyclerView
+        val booksAdapter: BooksAdapter =
+            BooksAdapter(
+                activity!!.applicationContext,
+                BooklyDataHandler.getInstance().books
+            )
+        recyclerView.adapter = booksAdapter
         recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext, 3)
+    }
+
+    private fun initFloatingActionBar(binding: FragmentMyBooksBinding) {
+        binding.myBooksFloatingActionButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_myBooksFragment_to_addABookFragment)
+        }
     }
 }
