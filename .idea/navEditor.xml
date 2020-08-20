@@ -32,6 +32,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="chooseABookFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="543" />
+                            <option name="y" value="577" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="homeFragment">
                     <value>
                       <LayoutPositions>
@@ -44,11 +56,6 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_homeFragment_to_addABookFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_homeFragment_to_addABookFragment2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -99,7 +106,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_myBooksFragment_to_addABookFragment2">
+                            <entry key="action_myBooksFragment_to_bookFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -150,11 +157,6 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_myProfileFragment_to_addABookFragment2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="action_myProfileFragment_to_homeFragment">
                               <value>
                                 <LayoutPositions />
@@ -201,7 +203,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_myReviewsFragment_to_addABookFragment2">
+                            <entry key="action_myReviewsFragment_to_chooseABookFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -253,8 +255,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-15" />
-                            <option name="y" value="580" />
+                            <option name="x" value="-28" />
+                            <option name="y" value="1067" />
                           </Point>
                         </option>
                       </LayoutPositions>
