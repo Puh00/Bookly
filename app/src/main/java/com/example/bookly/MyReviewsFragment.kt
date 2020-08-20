@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.appbar.view.*
 
 class MyReviewsFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
