@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     private fun hardCodedData() {
         repeat(12){
             BooklyDataHandler.getInstance().addBook("Rookie", "Josh", "",
-                0, null)
+                "")
         }    }
 
     fun openDrawer() {

@@ -54,6 +54,8 @@ public class BooklyDataHandler {
         createNewFile("user");
         createNewFile("reviews");
         createNewFile("books");
+
+        load();
     }
 
     public boolean createNewFile(String filename) {
@@ -96,7 +98,11 @@ public class BooklyDataHandler {
 
     private String getFormattedReviews() {
         StringBuilder sb = new StringBuilder();
-        return "";
+        for (Review r : reviews) {
+            sb.append(r.getBook().getTitle()).append(";").append(r.getRating()).append(";")
+                    .append(r.getComment()).append(";").append(r.getDate().toString()).append(";");
+        }
+        return sb.toString();
     }
 
     // save the necessary data to files
@@ -108,9 +114,28 @@ public class BooklyDataHandler {
         }
     }
 
-    // loads all data into the backend
-    public void load() {
+    private void loadUser() throws Exception {
+        String[] userInfo = readFrom("user").split(";");
+        user.setUserName(userInfo[0]);
+        user.setPassword(userInfo[1]);
+    }
 
+    private void loadBooks() throws Exception {
+        String[] bookInfo = readFrom("books").split(";");
+
+    }
+
+    private void loadReviews() throws Exception {
+        String[] reviewData = readFrom("books").split(";");
+    }
+
+    // loads all data into the backend
+    public void load() throws Exception {
+        if (ioHandler != null) {
+            loadUser();
+            loadBooks();
+            loadReviews();
+        }
     }
 
     //================================================================================
