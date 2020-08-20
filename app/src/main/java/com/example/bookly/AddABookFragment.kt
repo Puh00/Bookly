@@ -2,6 +2,7 @@ package com.example.bookly
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ class AddABookFragment : Fragment() {
 
     private val REQUEST_CODE = 100
 
+     private lateinit var imageUri : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,6 +62,7 @@ class AddABookFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
+            imageUri = (data?.data as Uri).toString()
             binding.bookCoverImageView.setImageURI(data?.data) // handle chosen image
         }
     }
@@ -76,9 +79,8 @@ class AddABookFragment : Fragment() {
 
     private fun addBook() {
         BooklyDataHandler.getInstance().addBook(binding.bookTitleTextView.text.toString(), binding.authorTextView.text.toString(),
-        binding.descriptionTextView.text.toString(), binding.editionTextView.text.toString(),
+        binding.descriptionTextView.text.toString(),
             if (binding.numberOfPagesNumberView.text.toString() != "") binding.numberOfPagesNumberView.text.toString()
-                .toShort() else 0,
-        binding.bookCoverImageView.drawable)
+                .toShort() else 0, imageUri)
     }
 }

@@ -1,5 +1,6 @@
 package com.example.bookly
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,7 @@ class BookFragment : Fragment() {
     }
 
     private fun initData() {
-        binding.fragmentBookImage.setImageDrawable(bookData.coverImage)
+        binding.fragmentBookImage.setImageURI(Uri.parse(bookData.coverImage))
         binding.fragmentBookBookTitle.text = bookData.title.toString()
         binding.fragmentBookAuthor.text = bookData.author
         binding.fragmentBookDescription.setText(bookData.description.toString())

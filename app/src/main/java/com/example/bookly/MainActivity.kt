@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var navController: NavController
 
+    val handler = BooklyDataHandler.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,19 +31,20 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-        BooklyDataHandler.getInstance().setContext(this)
-
-        /* currently we have a file named "test" with content "suck my ass"
-        handler.createNewFile("test")
-        handler.writeTo("test", "suck my ass")
-        */
+        handler.setContext(this)
+        handler.load()
 
         hardCodedData()
     }
 
+    override fun onStop() {
+        super.onStop()
+        handler.save()
+    }
+
     private fun hardCodedData() {
         repeat(12){
-            BooklyDataHandler.getInstance().addBook("Rookie", "Josh", "", "",
+            BooklyDataHandler.getInstance().addBook("Rookie", "Josh", "",
                 0, null)
         }    }
 
