@@ -71,7 +71,11 @@
             app:layout_constraintBottom_toTopOf="@+id/myReviews_cardView_review"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/myReview_cardView_book_image" />
+            app:layout_constraintStart_toEndOf="@+id/myReview_cardView_book_image"
+            android:focusable="false"
+            android:clickable="false"
+            android:isIndicator="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,7 +104,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.689"
-            app:layout_constraintStart_toEndOf="@+id/myReview_cardView_book_image" />
+            app:layout_constraintStart_toEndOf="@+id/myReview_cardView_book_image"
+            android:focusable="false"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
