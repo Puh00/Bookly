@@ -11,12 +11,15 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookly.R
+import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.backend.Review
 import java.text.SimpleDateFormat
 
-class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) : RecyclerView.Adapter<ReviewsAdapter.ReviewViewHolder>() {
+class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) :
+    RecyclerView.Adapter<ReviewsAdapter.ReviewViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val inflater = LayoutInflater.from(ct)
@@ -29,7 +32,8 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) : RecyclerVi
 
         //Listeners
         holder.cardView.setOnClickListener { view: View ->
-            //Todo (Create new xml or fix the old one)
+            BooklyDataHandler.getInstance().currentBookForReview = reviewData[position].book
+            view.findNavController().navigate(R.id.action_myReviewsFragment_to_writeAReviewFragment)
         }
     }
 
@@ -37,8 +41,9 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) : RecyclerVi
         return reviewData.size
     }
 
-    class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val REVIEW_PRETEXT = "Review written: "
+
         @SuppressLint("SimpleDateFormat")
         private val timeFormat: SimpleDateFormat = SimpleDateFormat("MMM d, YYYY")
 
@@ -49,7 +54,7 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) : RecyclerVi
         var review_text: EditText = itemView.findViewById(R.id.myReviews_cardView_review)
         var cardView: CardView = itemView.findViewById(R.id.myReviews_cardView)
 
-        fun setReviewData(ct: Context, review: Review){
+        fun setReviewData(ct: Context, review: Review) {
             if (review.book.coverImage == null) {
                 review.book.coverImage =
                     AppCompatResources.getDrawable(
