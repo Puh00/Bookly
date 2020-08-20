@@ -51,6 +51,9 @@ public class BooklyDataHandler {
     public void setContext(Context context) {
         this.context = context;
         ioHandler = new IOHandler(context);
+        createNewFile("user");
+        createNewFile("reviews");
+        createNewFile("books");
     }
 
     public boolean createNewFile(String filename) {
@@ -60,6 +63,7 @@ public class BooklyDataHandler {
         return false;
     }
 
+    // write something to a file, previous contents will be erased
     public boolean writeTo(String filename, String contents) {
         if (ioHandler != null) {
             return ioHandler.writeTo(filename, contents);
@@ -75,18 +79,50 @@ public class BooklyDataHandler {
         }
     }
 
+    private String getFormattedUser() {
+        StringBuilder sb = new StringBuilder();
+        return sb.append(user.getUserName()).append(";").append(user.getPassword())
+                .append(";").toString();
+    }
+
+    private String getFormattedBooks() {
+        StringBuilder sb = new StringBuilder();
+        for (Book b : books) {
+            sb.append(b.getCoverImage()).append(";").append(b.getTitle()).append(";")
+                    .append(b.getAuthor()).append(";").append(b.getDescription()).append(";");
+        }
+        return sb.toString();
+    }
+
+    private String getFormattedReviews() {
+        StringBuilder sb = new StringBuilder();
+        return "";
+    }
+
+    // save the necessary data to files
+    public void save() {
+        if (ioHandler != null) {
+            ioHandler.writeTo("user", getFormattedUser());
+            ioHandler.writeTo("books", getFormattedBooks());
+            ioHandler.writeTo("reviews", getFormattedReviews());
+        }
+    }
+
+    // loads all data into the backend
+    public void load() {
+
+    }
+
     //================================================================================
     // booklybackend.Book logic
     //================================================================================
 
-    public void addBook(String title, String author, String description, String edition, short numberOfPages, Drawable coverImage) {
+    public void addBook(String title, String author, String description, String coverImage) {
 
         Book temporaryBook = new Book();
         temporaryBook.setTitle(title);
         temporaryBook.setAuthor(author);
         temporaryBook.setDescription(description);
-        temporaryBook.setEdition(edition);
-        temporaryBook.setNumberOfPages(numberOfPages);
         temporaryBook.setCoverImage(coverImage);
 
         books.add(temporaryBook);
@@ -96,18 +132,15 @@ public class BooklyDataHandler {
         books.remove(book);
     }
 
-    public void editBook(Book book, String title, String author, String description, String edition, short numberOfPages, Drawable coverImage) {
+    public void editBook(Book book, String title, String author, String description, String coverImage) {
         if (!author.equals(""))
             book.setAuthor(author);
 
+        if (!title.equals(""))
+            book.setTitle(title);
+
         if (!description.equals(""))
             book.setDescription(description);
-
-        if (!edition.equals(""))
-            book.setEdition(edition);
-
-        if (numberOfPages > 0)
-            book.setNumberOfPages(numberOfPages);
 
         if (coverImage != null)
             book.setCoverImage(coverImage);

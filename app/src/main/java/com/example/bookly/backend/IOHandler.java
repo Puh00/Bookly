@@ -24,6 +24,8 @@ public class IOHandler {
         return file != null && file.exists();
     }
 
+
+    // returns true when file already exists or created successfully
     public boolean createNewFile(String name) {
         boolean r = fileExists(name);
         if (!r) {
@@ -59,8 +61,6 @@ public class IOHandler {
             }
         } catch (IOException e) {
             // Error occurred when opening raw file for reading.
-        } finally {
-            String contents = stringBuilder.toString();
         }
 
         return stringBuilder.toString();
