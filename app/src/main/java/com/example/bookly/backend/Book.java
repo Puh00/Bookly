@@ -4,10 +4,10 @@ import android.graphics.drawable.Drawable;
 
 public class Book {
 
-    private String title;
-    private String author;
-    private String description;
-    private String coverImage;
+    private String title = "";
+    private String author = "";
+    private String description = "";
+    private String coverImage = "";
 
     public String getTitle() {
         return title;
