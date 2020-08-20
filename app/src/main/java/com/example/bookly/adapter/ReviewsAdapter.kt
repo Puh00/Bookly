@@ -2,6 +2,7 @@ package com.example.bookly.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -55,14 +55,12 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) :
         var cardView: CardView = itemView.findViewById(R.id.myReviews_cardView)
 
         fun setReviewData(ct: Context, review: Review) {
-            if (review.book.coverImage == null) {
-                review.book.coverImage =
-                    AppCompatResources.getDrawable(
-                        ct,
-                        R.drawable.no_cover_image
-                    )
+            if (review.book.coverImage == "" || review.book.coverImage == null) {
+                book_cover.setImageResource(R.drawable.no_cover_image)
+            }else{
+                book_cover.setImageURI(Uri.parse(review.book.coverImage))
+
             }
-            book_cover.setImageDrawable(review.book.coverImage)
             book_title.text = review.book.title.toString()
             review_date.text = REVIEW_PRETEXT + " " + timeFormat.format(review.date).toString()
             ratingBar.rating = review.rating

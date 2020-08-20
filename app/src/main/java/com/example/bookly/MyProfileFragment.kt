@@ -49,8 +49,9 @@ class MyProfileFragment : Fragment() {
     }
 
     private fun initAppBar() {
-        val hamburgerButton = binding.previousTitleBar.backButton
-        hamburgerButton.setOnClickListener { (activity as MainActivity).openDrawer() }
+        val backButton = binding.myProfileAppBar.backButton
+        backButton.setOnClickListener { (activity as MainActivity).openDrawer() }
+        binding.myProfileAppBar.currentFragment.text = "My Profile"
     }
 
     private fun initListeners() {

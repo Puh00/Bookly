@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
                 "")
         }    }
 
+
     fun openDrawer() {
         drawerLayout.openDrawer(GravityCompat.START)
     }

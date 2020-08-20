@@ -23,9 +23,6 @@
             android:id="@+id/action_homeFragment_to_addABookFragment"
             app:destination="@id/addABookFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_writeAReviewFragment"
-            app:destination="@id/writeAReviewFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
     </fragment>
@@ -46,9 +43,6 @@
         <action
             android:id="@+id/action_myBooksFragment_to_addABookFragment"
             app:destination="@id/addABookFragment" />
-        <action
-            android:id="@+id/action_myBooksFragment_to_writeAReviewFragment"
-            app:destination="@id/writeAReviewFragment" />
         <action
             android:id="@+id/action_myBooksFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
@@ -101,9 +95,6 @@
             android:id="@+id/action_myProfileFragment_to_addABookFragment"
             app:destination="@id/addABookFragment" />
         <action
-            android:id="@+id/action_myProfileFragment_to_writeAReviewFragment"
-            app:destination="@id/writeAReviewFragment" />
-        <action
             android:id="@+id/action_myProfileFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
     </fragment>
@@ -116,7 +107,11 @@
         android:id="@+id/writeAReviewFragment"
         android:name="com.example.bookly.WriteAReviewFragment"
         android:label="WriteAReviewFragment"
-        tools:layout="@layout/fragment_write_a_review" />
+        tools:layout="@layout/fragment_write_a_review" >
+        <action
+            android:id="@+id/action_writeAReviewFragment_to_myReviewsFragment"
+            app:destination="@id/myReviewsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.bookly.SettingsFragment"

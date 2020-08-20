@@ -22,7 +22,7 @@ class AddABookFragment : Fragment() {
 
     private val REQUEST_CODE = 100
 
-     private lateinit var imageUri : String
+    private lateinit var imageUri: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,22 +37,25 @@ class AddABookFragment : Fragment() {
         initAppBar()
 
         binding.addBookButton.setOnClickListener {
-            if (binding.bookTitleTextView.text.toString() != "" && binding.authorTextView.text.toString() != ""){
+            if (binding.bookTitleTextView.text.toString() != "" && binding.authorTextView.text.toString() != "") {
                 addBook()
                 this.findNavController().popBackStack()
-            }else{
-                Toast.makeText(getActivity(),
-                    "You dumb fuck", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(
+                    getActivity(),
+                    "You dumb fuck", Toast.LENGTH_LONG
+                ).show();
             }
 
         }
 
-        binding.bookCoverImageView.setOnClickListener{
+        binding.bookCoverImageView.setOnClickListener {
             openGalleryForImage()
         }
 
         return binding.root
     }
+
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
@@ -61,28 +64,26 @@ class AddABookFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
             imageUri = (data?.data as Uri).toString()
             binding.bookCoverImageView.setImageURI(data?.data) // handle chosen image
         }
     }
 
     private fun initAppBar() {
-        val backButton = binding.previousTitleBar.backButton
-        backButton.setOnClickListener { previousFragment()
-            Toast.makeText(
-                activity,
-                "Nopoe", Toast.LENGTH_LONG).show();}
+        val backButton = binding.addABookAppbar.backButton
+        backButton.setOnClickListener { previousFragment() }
+        binding.addABookAppbar.currentFragment.text = "Add a Book"
     }
 
-    private fun previousFragment(){
+    private fun previousFragment() {
         this.findNavController().popBackStack()
     }
 
     private fun addBook() {
-        BooklyDataHandler.getInstance().addBook(binding.bookTitleTextView.text.toString(), binding.authorTextView.text.toString(),
-        binding.descriptionTextView.text.toString(),
-            if (binding.numberOfPagesNumberView.text.toString() != "") binding.numberOfPagesNumberView.text.toString()
-                .toShort() else 0, imageUri)
+        BooklyDataHandler.getInstance().addBook(
+            binding.bookTitleTextView.text.toString(), binding.authorTextView.text.toString(),
+            binding.descriptionTextView.text.toString(), imageUri
+        )
     }
 }

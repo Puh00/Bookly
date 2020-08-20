@@ -34,6 +34,7 @@ class ChooseABookFragment : Fragment() {
     private fun initAppBar(binding: FragmentChooseABookBinding){
         val backButton = binding.chooseABookAppBar.backButton
         backButton.setOnClickListener { previousFragment() }
+        binding.chooseABookAppBar.currentFragment.text = "Choose a Book"
     }
 
     private fun previousFragment(){

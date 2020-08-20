@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.bookly.backend.Book
 import com.example.bookly.backend.BooklyDataHandler
@@ -40,7 +41,7 @@ class WriteAReviewFragment : Fragment() {
             R.layout.fragment_write_a_review, container, false
         )
 
-        reviewExists=doesReviewExist()
+        reviewExists = doesReviewExist()
         initAppBar()
         initData()
         initListeners()
@@ -50,24 +51,28 @@ class WriteAReviewFragment : Fragment() {
 
     private fun initAppBar() {
         val backButton = binding.writeAReviewTitleBar.backButton
-        backButton.setOnClickListener {
-            previousFragment()
-            Toast.makeText(
-                activity,
-                "Nopoe", Toast.LENGTH_LONG
-            ).show();
-        }
+        backButton.setOnClickListener { previousFragment() }
+        binding.writeAReviewTitleBar.currentFragment.text = "Write a review"
     }
 
     private fun previousFragment() {
         this.findNavController().popBackStack()
     }
 
+    private fun backToMyReviews(view: View?) {
+        view!!.findNavController().navigate(R.id.action_writeAReviewFragment_to_myReviewsFragment)
+
+    }
+
     private fun initData() {
         if (BooklyDataHandler.getInstance().currentBookForReview != null) {
             val book = BooklyDataHandler.getInstance().currentBookForReview
 
-            binding.bookCoverReview.setImageURI(Uri.parse(book.coverImage))
+            try {
+                binding.bookCoverReview.setImageURI(Uri.parse(book.coverImage))
+            }catch (e: NullPointerException){
+                binding.bookCoverReview.setImageResource(R.drawable.no_cover_image)
+            }
             binding.reviewBookTitleTextView.text = book.title
             binding.reviewBookAuthorTextView.text = book.author
 
@@ -104,9 +109,7 @@ class WriteAReviewFragment : Fragment() {
                     Date()
                 )
             }
-
-            //Change back to my reviews instead
-            previousFragment()
+            backToMyReviews(view)
         }
     }
 
