@@ -1,13 +1,17 @@
 package com.example.bookly.backend;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class BooklyDataHandler {
 
+
+    private IOHandler ioHandler;
     private static BooklyDataHandler instance = null;
     private User user;
     private List<Review> reviews;
@@ -16,6 +20,7 @@ public class BooklyDataHandler {
     private Book currentBookForReview;
     private Book currentBookFromMyBooks;
     private boolean recyclerViewOnMyBooks;
+    private Context context;
 
     private BooklyDataHandler() {
     }
@@ -38,6 +43,36 @@ public class BooklyDataHandler {
         reviews = new ArrayList<>();
         bookStatuses = new ArrayList<>();
         books = new ArrayList<>();
+    }
+
+    //================================================================================
+    // IO handling stuff
+    //================================================================================
+    public void setContext(Context context) {
+        this.context = context;
+        ioHandler = new IOHandler(context);
+    }
+
+    public boolean createNewFile(String filename) {
+        if (ioHandler != null) {
+            return ioHandler.createNewFile(filename);
+        }
+        return false;
+    }
+
+    public boolean writeTo(String filename, String contents) {
+        if (ioHandler != null) {
+            return ioHandler.writeTo(filename, contents);
+        }
+        return false;
+    }
+
+    public String readFrom(String filename) throws Exception {
+        try {
+            return ioHandler.readFrom(filename);
+        } catch (IOException e) {
+            throw new Exception("wtf are you doing");
+        }
     }
 
     //================================================================================

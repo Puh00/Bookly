@@ -29,6 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(binding.navView, navController)
 
+        BooklyDataHandler.getInstance().setContext(this)
+
+        /* currently we have a file named "test" with content "suck my ass"
+        handler.createNewFile("test")
+        handler.writeTo("test", "suck my ass")
+        */
+
         hardCodedData()
     }
 
