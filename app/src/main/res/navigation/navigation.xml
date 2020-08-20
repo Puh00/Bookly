@@ -79,6 +79,9 @@
         <action
             android:id="@+id/action_myReviewsFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_myReviewsFragment_to_chooseABookFragment"
+            app:destination="@id/chooseABookFragment" />
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
@@ -124,5 +127,14 @@
         android:name="com.example.bookly.BookFragment"
         android:label="BookFragment"
         tools:layout="@layout/fragment_book" />
+    <fragment
+        android:id="@+id/chooseABookFragment"
+        android:name="com.example.bookly.ChooseABookFragment"
+        android:label="ChooseABookFragment"
+        tools:layout="@layout/fragment_choose_a_book">
+        <action
+            android:id="@+id/action_chooseABookFragment_to_writeAReviewFragment"
+            app:destination="@id/writeAReviewFragment" />
+    </fragment>
 
 </navigation>

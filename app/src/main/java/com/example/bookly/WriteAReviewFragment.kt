@@ -61,6 +61,7 @@ class WriteAReviewFragment : Fragment() {
         if (BooklyDataHandler.getInstance().currentBookForReview != null) {
             val book = BooklyDataHandler.getInstance().currentBookForReview
 
+            binding.bookCoverReview.setImageDrawable(book.coverImage)
             binding.reviewBookTitleTextView.text = book.title
             binding.reviewBookAuthorTextView.text = book.author
 

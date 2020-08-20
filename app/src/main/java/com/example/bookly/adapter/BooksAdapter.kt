@@ -27,19 +27,19 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
 
         return when (viewType) {
             MY_BOOKS_RECYCLERVIEW -> {
-                var inflater = LayoutInflater.from(ct)
-                var view = inflater.inflate(R.layout.cardview_item_book, parent, false)
+                val inflater = LayoutInflater.from(ct)
+                val view = inflater.inflate(R.layout.cardview_item_book, parent, false)
                 return BookViewHolder(view)
             }
             CHOOSE_BOOK_RECYCLERVIEW -> {
-                var inflater = LayoutInflater.from(ct)
-                var view = inflater.inflate(R.layout.cardview_item_book, parent, false)
+                val inflater = LayoutInflater.from(ct)
+                val view = inflater.inflate(R.layout.cardview_item_book, parent, false)
                 return BookViewHolder(view)
             }
             else -> {
                 Log.e(TAG, "viewType error in OnCreateViewHolder")
-                var inflater = LayoutInflater.from(ct)
-                var view = inflater.inflate(R.layout.cardview_item_book, parent, false)
+                val inflater = LayoutInflater.from(ct)
+                val view = inflater.inflate(R.layout.cardview_item_book, parent, false)
                 return BookViewHolder(view)
             }
         }
@@ -62,7 +62,10 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
             }
         } else if (getItemViewType(position) == CHOOSE_BOOK_RECYCLERVIEW) {
             //chooseBookFragment
-            TODO("Not yet implemented")
+            holder.cardView.setOnClickListener { view: View ->
+                BooklyDataHandler.getInstance().currentBookForReview = bookData[position]
+                view.findNavController().navigate(R.id.action_chooseABookFragment_to_writeAReviewFragment)
+            }
         }
     }
 

@@ -25,6 +25,7 @@ class MyReviewsFragment : Fragment() {
 
         initBottomNav(binding)
         initAppBar(binding)
+        initFloatingActionBar(binding)
 
         return binding.root
     }
@@ -41,6 +42,12 @@ class MyReviewsFragment : Fragment() {
 
         binding.homeButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_myReviewsFragment_to_homeFragment)
+        }
+    }
+
+    private fun initFloatingActionBar(binding: FragmentMyReviewsBinding) {
+        binding.myReviewsFloatingActionButton.setOnClickListener { view: View ->
+            view.findNavController().navigate(R.id.action_myReviewsFragment_to_chooseABookFragment)
         }
     }
 }
