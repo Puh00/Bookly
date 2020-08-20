@@ -116,7 +116,11 @@
         android:id="@+id/writeAReviewFragment"
         android:name="com.example.bookly.WriteAReviewFragment"
         android:label="WriteAReviewFragment"
-        tools:layout="@layout/fragment_write_a_review" />
+        tools:layout="@layout/fragment_write_a_review" >
+        <action
+            android:id="@+id/action_writeAReviewFragment_to_myReviewsFragment"
+            app:destination="@id/myReviewsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.bookly.SettingsFragment"
