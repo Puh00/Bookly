@@ -10,7 +10,7 @@
         android:background="@android:color/white">
 
         <include
-            android:id="@+id/previousTitleBar"
+            android:id="@+id/addABook_Appbar"
             layout="@layout/appbar_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

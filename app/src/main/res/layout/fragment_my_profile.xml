@@ -10,7 +10,7 @@
         android:background="@android:color/holo_purple">
 
         <include
-            android:id="@+id/previousTitleBar"
+            android:id="@+id/myProfile_appBar"
             layout="@layout/appbar_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,7 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.019"
             app:layout_constraintStart_toEndOf="@+id/profilePictureImageView"
-            app:layout_constraintTop_toTopOf="@+id/previousTitleBar"
+            app:layout_constraintTop_toTopOf="@+id/myProfile_appBar"
             app:layout_constraintVertical_bias="0.23"/>
 
         <EditText
@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.019"
             app:layout_constraintStart_toEndOf="@+id/profilePictureImageView"
-            app:layout_constraintTop_toTopOf="@+id/previousTitleBar"
+            app:layout_constraintTop_toTopOf="@+id/myProfile_appBar"
             app:layout_constraintVertical_bias="0.23"/>
 
         <ImageView

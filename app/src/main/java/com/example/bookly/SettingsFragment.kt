@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.bookly.databinding.FragmentSettingsBinding
+import kotlinx.android.synthetic.main.appbar_two.view.*
 
 class SettingsFragment : Fragment() {
 
@@ -20,6 +21,7 @@ class SettingsFragment : Fragment() {
             R.layout.fragment_settings, container, false
         )
 
+        binding.settingsAppBar.currentFragment.text = "Settings"
         return binding.root
     }
 }

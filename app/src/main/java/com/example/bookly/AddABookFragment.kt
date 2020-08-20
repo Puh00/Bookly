@@ -65,11 +65,9 @@ class AddABookFragment : Fragment() {
     }
 
     private fun initAppBar() {
-        val backButton = binding.previousTitleBar.backButton
-        backButton.setOnClickListener { previousFragment()
-            Toast.makeText(
-                activity,
-                "Nopoe", Toast.LENGTH_LONG).show();}
+        val backButton = binding.addABookAppbar.backButton
+        backButton.setOnClickListener { previousFragment() }
+        binding.addABookAppbar.currentFragment.text = "Add a Book"
     }
 
     private fun previousFragment(){

@@ -50,13 +50,8 @@ class WriteAReviewFragment : Fragment() {
 
     private fun initAppBar() {
         val backButton = binding.writeAReviewTitleBar.backButton
-        backButton.setOnClickListener {
-            previousFragment()
-            Toast.makeText(
-                activity,
-                "Nopoe", Toast.LENGTH_LONG
-            ).show();
-        }
+        backButton.setOnClickListener { previousFragment() }
+        binding.writeAReviewTitleBar.currentFragment.text = "Write a review"
     }
 
     private fun previousFragment() {
