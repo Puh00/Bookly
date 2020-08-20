@@ -117,6 +117,14 @@ public class BooklyDataHandler {
         reviews.add(new Review(book, rating, textReview, reviewDate));
     }
 
+    public void editReview(Review review, Book book, float rating, String textReview, Date reviewDate){
+        if(reviews.contains(review)){
+            reviews.remove(review);
+
+            addReview(book, rating, textReview, reviewDate);
+        }
+    }
+
     //================================================================================
     // addABookFragment
     //================================================================================
