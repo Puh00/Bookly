@@ -1,9 +1,12 @@
 package com.example.bookly.backend;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,7 +58,9 @@ public class BooklyDataHandler {
         createNewFile("reviews");
         createNewFile("books");
 
-        load();
+        try {
+            load();
+        } catch (Exception ignored) {}
     }
 
     public boolean createNewFile(String filename) {
@@ -82,9 +87,7 @@ public class BooklyDataHandler {
     }
 
     private String getFormattedUser() {
-        StringBuilder sb = new StringBuilder();
-        return sb.append(user.getUserName()).append(";").append(user.getPassword())
-                .append(";").toString();
+        return user.getUserName() + ";" + user.getPassword() + ";";
     }
 
     private String getFormattedBooks() {
@@ -116,17 +119,42 @@ public class BooklyDataHandler {
 
     private void loadUser() throws Exception {
         String[] userInfo = readFrom("user").split(";");
-        user.setUserName(userInfo[0]);
-        user.setPassword(userInfo[1]);
+        if (userInfo.length == 3) {
+            user.setUserName(userInfo[0]);
+            user.setPassword(userInfo[1]);
+        }
     }
 
     private void loadBooks() throws Exception {
-        String[] bookInfo = readFrom("books").split(";");
+        String[] bookData = readFrom("books").split(";");
+        for (int i = 0; bookData.length - i > 3; i+=4) {
+            Book tmp = new Book();
+            tmp.setCoverImage(bookData[i]);
+            tmp.setTitle(bookData[i+1]);
+            tmp.setAuthor(bookData[i+2]);
+            tmp.setDescription(bookData[i+3]);
+            books.add(tmp);
+        }
+    }
 
+    private Book findBook(String bookTitle) {
+        for (Book b : books) {
+            if (b.getTitle().equals(bookTitle)) {
+                return b;
+            }
+        }
+        return null;
     }
 
     private void loadReviews() throws Exception {
-        String[] reviewData = readFrom("books").split(";");
+        String[] reviewData = readFrom("reviews").split(";");
+        for (int i = 0; reviewData.length - i > 3 ; i+=4) {
+
+
+            Review tmp = new Review(findBook(reviewData[i]), Float.parseFloat(reviewData[i+1]), reviewData[i+2], new Date(reviewData[i+3]));
+            reviews.add(tmp);
+        }
+
     }
 
     // loads all data into the backend

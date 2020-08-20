@@ -32,21 +32,12 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.navView, navController)
 
         handler.setContext(this)
-        handler.load()
-
-        hardCodedData()
     }
 
     override fun onStop() {
         super.onStop()
         handler.save()
     }
-
-    private fun hardCodedData() {
-        repeat(12){
-            BooklyDataHandler.getInstance().addBook("Rookie", "Josh", "",
-                "")
-        }    }
 
 
     fun openDrawer() {

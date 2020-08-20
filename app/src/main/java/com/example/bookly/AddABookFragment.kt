@@ -22,7 +22,7 @@ class AddABookFragment : Fragment() {
 
     private val REQUEST_CODE = 100
 
-    private lateinit var imageUri: String
+    private  var imageUri: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,7 +65,7 @@ class AddABookFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
-            imageUri = (data?.data as Uri).toString()
+            imageUri = (data?.data as Uri).path.toString()
             binding.bookCoverImageView.setImageURI(data?.data) // handle chosen image
         }
     }
