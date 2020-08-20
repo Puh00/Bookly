@@ -56,7 +56,7 @@ class MyBooksFragment : Fragment() {
         val booksAdapter: BooksAdapter =
             BooksAdapter(
                 activity!!.applicationContext,
-                BooklyDataHandler.getInstance().books
+                BooklyDataHandler.getInstance().books.asReversed()
             )
         recyclerView.adapter = booksAdapter
         recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext, 3)
