@@ -139,4 +139,16 @@ public class BooklyDataHandler {
     public void setRecyclerViewOnMyBooks(boolean recyclerViewOnMyBooks) {
         this.recyclerViewOnMyBooks = recyclerViewOnMyBooks;
     }
+
+    //================================================================================
+    // MyReviewsFragment.kt
+    //================================================================================
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 }
