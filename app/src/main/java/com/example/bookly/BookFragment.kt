@@ -33,7 +33,12 @@ class BookFragment : Fragment() {
     }
 
     private fun initData() {
-        binding.fragmentBookImage.setImageURI(Uri.parse(bookData.coverImage))
+        try {
+            binding.fragmentBookImage.setImageURI(Uri.parse(bookData.coverImage))
+
+        }catch (e: NullPointerException){
+            binding.fragmentBookImage.setImageResource(R.drawable.no_cover_image)
+        }
         binding.fragmentBookBookTitle.text = bookData.title.toString()
         binding.fragmentBookAuthor.text = bookData.author
         binding.fragmentBookDescription.setText(bookData.description.toString())

@@ -1,13 +1,13 @@
 package com.example.bookly.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.cardview.widget.CardView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -88,14 +88,12 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
         var cardView: CardView = itemView.findViewById(R.id.myBooks_cardView)
 
         fun setBookData(ct: Context, book: Book) {
-            if (book.coverImage == null) {
-                book.coverImage =
-                    AppCompatResources.getDrawable(
-                        ct,
-                        R.drawable.no_cover_image
-                    )
+            try {
+                book_image.setImageURI(Uri.parse(book.coverImage))
+            }catch (e: NullPointerException){
+                book_image.setImageResource(R.drawable.no_cover_image)
+
             }
-            book_image.setImageDrawable(book.coverImage)
             book_title.text = book.title
         }
     }

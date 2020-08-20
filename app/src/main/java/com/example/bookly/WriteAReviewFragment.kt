@@ -68,7 +68,11 @@ class WriteAReviewFragment : Fragment() {
         if (BooklyDataHandler.getInstance().currentBookForReview != null) {
             val book = BooklyDataHandler.getInstance().currentBookForReview
 
-            binding.bookCoverReview.setImageURI(Uri.parse(book.coverImage))
+            try {
+                binding.bookCoverReview.setImageURI(Uri.parse(book.coverImage))
+            }catch (e: NullPointerException){
+                binding.bookCoverReview.setImageResource(R.drawable.no_cover_image)
+            }
             binding.reviewBookTitleTextView.text = book.title
             binding.reviewBookAuthorTextView.text = book.author
 
