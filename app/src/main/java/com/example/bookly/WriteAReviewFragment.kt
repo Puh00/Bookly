@@ -58,8 +58,11 @@ class WriteAReviewFragment : Fragment() {
     }
 
     private fun initData() {
+        currentBook = BooklyDataHandler.getInstance().currentBookForReview
+
         if (BooklyDataHandler.getInstance().currentBookForReview != null) {
             val book = BooklyDataHandler.getInstance().currentBookForReview
+
 
             binding.bookCoverReview.setImageDrawable(book.coverImage)
             binding.reviewBookTitleTextView.text = book.title
@@ -80,6 +83,9 @@ class WriteAReviewFragment : Fragment() {
                 binding.reviewEditText.text.toString(),
                 Date()
             )
+
+            //Change back to my reviews instead
+            previousFragment()
         }
     }
 }

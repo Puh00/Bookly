@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.bookly.adapter.ReviewsAdapter
+import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.databinding.FragmentMyReviewsBinding
 import kotlinx.android.synthetic.main.appbar.view.*
 
@@ -26,6 +29,7 @@ class MyReviewsFragment : Fragment() {
         initBottomNav(binding)
         initAppBar(binding)
         initFloatingActionBar(binding)
+        initRecyclerView(binding)
 
         return binding.root
     }
@@ -49,5 +53,13 @@ class MyReviewsFragment : Fragment() {
         binding.myReviewsFloatingActionButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_myReviewsFragment_to_chooseABookFragment)
         }
+    }
+
+    private fun initRecyclerView(binding: FragmentMyReviewsBinding) {
+        val recyclerView = binding.myReviewsRecyclerView
+        val reviewsAdapter: ReviewsAdapter =
+            ReviewsAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().reviews)
+        recyclerView.adapter = reviewsAdapter
+        recyclerView.layoutManager = GridLayoutManager(activity!!.applicationContext, 1)
     }
 }
