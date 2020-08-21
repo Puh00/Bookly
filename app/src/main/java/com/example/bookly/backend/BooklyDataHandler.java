@@ -100,7 +100,7 @@ public class BooklyDataHandler {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             cover.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] byteArray = stream.toByteArray();
-            cover.recycle();
+           // cover.recycle();
 
             ioHandler.writeTo(fileName, byteArray);
         }
