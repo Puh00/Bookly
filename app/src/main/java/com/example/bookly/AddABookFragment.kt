@@ -84,5 +84,7 @@ class AddABookFragment : Fragment() {
             binding.bookTitleTextView.text.toString(), binding.authorTextView.text.toString(),
             binding.descriptionTextView.text.toString(), binding.bookCoverImageView.drawable.toBitmap()
         )
+
+        BooklyDataHandler.getInstance().save()
     }
 }

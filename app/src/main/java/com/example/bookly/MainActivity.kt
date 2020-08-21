@@ -34,10 +34,6 @@ class MainActivity : AppCompatActivity() {
         handler.setContext(this)
     }
 
-    override fun onStop() {
-        super.onStop()
-        handler.save()
-    }
 
 
     fun openDrawer() {

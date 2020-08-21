@@ -109,6 +109,7 @@ class WriteAReviewFragment : Fragment() {
                     Date()
                 )
             }
+            BooklyDataHandler.getInstance().save()
             backToMyReviews(view)
         }
     }
