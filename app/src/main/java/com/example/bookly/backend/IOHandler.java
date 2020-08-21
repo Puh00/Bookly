@@ -2,7 +2,9 @@ package com.example.bookly.backend;
 
 import android.content.Context;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -48,6 +50,17 @@ public class IOHandler {
         }
     }
 
+    public boolean writeTo(String filename, byte[] contents) {
+        try {
+            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
+            fos.write(contents);
+            fos.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
     public String readFrom(String filename) throws FileNotFoundException {
         FileInputStream fis = context.openFileInput(filename);
         InputStreamReader inputStreamReader =
@@ -66,5 +79,18 @@ public class IOHandler {
         return stringBuilder.toString();
     }
 
+    public byte[] readAsByteArray(String filename) {
+        try {
+            File file = new File(context.getFilesDir(), filename);
+
+            byte[] bytes = new byte[(int) file.length()];
+            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+            DataInputStream dis = new DataInputStream(bis);
+            dis.readFully(bytes);
+            return bytes;
+        } catch (IOException e) {
+            return null;
+        }
+    }
 
 }

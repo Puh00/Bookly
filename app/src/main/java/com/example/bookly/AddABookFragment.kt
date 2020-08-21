@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -22,7 +23,6 @@ class AddABookFragment : Fragment() {
 
     private val REQUEST_CODE = 100
 
-    private  var imageUri: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,7 +65,6 @@ class AddABookFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
-            imageUri = (data?.data as Uri).path.toString()
             binding.bookCoverImageView.setImageURI(data?.data) // handle chosen image
         }
     }
@@ -83,7 +82,7 @@ class AddABookFragment : Fragment() {
     private fun addBook() {
         BooklyDataHandler.getInstance().addBook(
             binding.bookTitleTextView.text.toString(), binding.authorTextView.text.toString(),
-            binding.descriptionTextView.text.toString(), imageUri
+            binding.descriptionTextView.text.toString(), binding.bookCoverImageView.drawable.toBitmap()
         )
     }
 }
