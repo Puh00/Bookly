@@ -250,6 +250,7 @@ public class BooklyDataHandler {
         books.clear();
         user.setUserName("");
         user.setPassword("");
+        save();
     }
 
     //================================================================================
