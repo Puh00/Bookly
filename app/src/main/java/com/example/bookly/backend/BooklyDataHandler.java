@@ -1,12 +1,9 @@
 package com.example.bookly.backend;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -209,6 +206,13 @@ public class BooklyDataHandler {
 
             addReview(book, rating, textReview, reviewDate);
         }
+    }
+
+    public void resetData(){
+        reviews.clear();
+        books.clear();
+        user.setUserName("");
+        user.setPassword("");
     }
 
     //================================================================================
