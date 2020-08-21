@@ -1,13 +1,13 @@
 package com.example.bookly.backend;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
 
 public class Book {
 
     private String title = "";
     private String author = "";
     private String description = "";
-    private String coverImage = "";
+    private Bitmap coverImage = null;
 
     public String getTitle() {
         return title;
@@ -33,11 +33,11 @@ public class Book {
         this.description = description;
     }
 
-    public String getCoverImage() {
+    public Bitmap getCoverImage() {
         return coverImage;
     }
 
-    public void setCoverImage(String coverImage) {
+    public void setCoverImage(Bitmap coverImage) {
         this.coverImage = coverImage;
     }
 }

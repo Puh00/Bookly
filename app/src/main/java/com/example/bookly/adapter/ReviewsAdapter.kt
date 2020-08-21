@@ -55,11 +55,10 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) :
         var cardView: CardView = itemView.findViewById(R.id.myReviews_cardView)
 
         fun setReviewData(ct: Context, review: Review) {
-            if (review.book.coverImage == "" || review.book.coverImage == null) {
+            if (review.book.coverImage == null) {
                 book_cover.setImageResource(R.drawable.no_cover_image)
-            }else{
-                book_cover.setImageURI(Uri.parse(review.book.coverImage))
-
+            } else {
+                book_cover.setImageBitmap(review.book.coverImage)
             }
             book_title.text = review.book.title.toString()
             review_date.text = REVIEW_PRETEXT + " " + timeFormat.format(review.date).toString()

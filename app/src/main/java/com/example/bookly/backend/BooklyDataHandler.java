@@ -1,8 +1,11 @@
 package com.example.bookly.backend;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -87,11 +90,29 @@ public class BooklyDataHandler {
         return user.getUserName() + ";" + user.getPassword() + ";";
     }
 
+    private void saveBookCover(Book book) {
+        if (book.getCoverImage() != null) {
+            String fileName = book.getTitle()+".booklybmp";
+            createNewFile(fileName);
+            Bitmap cover = book.getCoverImage();
+
+            // copy-pasted code, i don't know what it does
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            cover.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            cover.recycle();
+
+            ioHandler.writeTo(fileName, byteArray);
+        }
+    }
+
     private String getFormattedBooks() {
         StringBuilder sb = new StringBuilder();
         for (Book b : books) {
-            sb.append(b.getCoverImage()).append(";").append(b.getTitle()).append(";")
-                    .append(b.getAuthor()).append(";").append(b.getDescription()).append(";");
+            sb.append(b.getTitle()).append(";").append(b.getAuthor()).append(";")
+                    .append(b.getDescription()).append(";");
+
+            saveBookCover(b);
         }
         return sb.toString();
     }
@@ -122,15 +143,33 @@ public class BooklyDataHandler {
         }
     }
 
+
+    private Bitmap getBookCover(String bookTitle) {
+        if (ioHandler.fileExists(bookTitle+".booklybmp")) {
+            Book book = findBook(bookTitle);
+            if (book != null) {
+                byte[] byteArr = ioHandler.readAsByteArray(bookTitle + ".booklybmp");
+                Bitmap cover = BitmapFactory.decodeByteArray(byteArr, 0, byteArr.length);
+                return cover;
+            }
+        }
+
+        return null;
+    }
+
+
     private void loadBooks() throws Exception {
         String[] bookData = readFrom("books").split(";");
-        for (int i = 0; bookData.length - i > 3; i+=4) {
+        for (int i = 0; bookData.length - i > 2; i+=3) {
             Book tmp = new Book();
-            tmp.setCoverImage(bookData[i]);
-            tmp.setTitle(bookData[i+1]);
-            tmp.setAuthor(bookData[i+2]);
-            tmp.setDescription(bookData[i+3]);
+            tmp.setTitle(bookData[i]);
+            tmp.setAuthor(bookData[i+1]);
+            tmp.setDescription(bookData[i+2]);
             books.add(tmp);
+        }
+
+        for (Book b : books) {
+            b.setCoverImage(getBookCover(b.getTitle()));
         }
     }
 
@@ -146,8 +185,6 @@ public class BooklyDataHandler {
     private void loadReviews() throws Exception {
         String[] reviewData = readFrom("reviews").split(";");
         for (int i = 0; reviewData.length - i > 3 ; i+=4) {
-
-
             Review tmp = new Review(findBook(reviewData[i]), Float.parseFloat(reviewData[i+1]), reviewData[i+2], new Date(reviewData[i+3]));
             reviews.add(tmp);
         }
@@ -167,7 +204,7 @@ public class BooklyDataHandler {
     // booklybackend.Book logic
     //================================================================================
 
-    public void addBook(String title, String author, String description, String coverImage) {
+    public void addBook(String title, String author, String description, Bitmap coverImage) {
 
         Book temporaryBook = new Book();
         temporaryBook.setTitle(title);
@@ -182,7 +219,7 @@ public class BooklyDataHandler {
         books.remove(book);
     }
 
-    public void editBook(Book book, String title, String author, String description, String coverImage) {
+    public void editBook(Book book, String title, String author, String description, Bitmap coverImage) {
         if (!author.equals(""))
             book.setAuthor(author);
 

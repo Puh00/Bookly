@@ -88,11 +88,10 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
         var cardView: CardView = itemView.findViewById(R.id.myBooks_cardView)
 
         fun setBookData(ct: Context, book: Book) {
-            try {
-                book_image.setImageURI(Uri.parse(book.coverImage))
-            }catch (e: NullPointerException){
+            if (book.coverImage != null) {
+                book_image.setImageBitmap(book.coverImage)
+            } else {
                 book_image.setImageResource(R.drawable.no_cover_image)
-
             }
             book_title.text = book.title
         }
