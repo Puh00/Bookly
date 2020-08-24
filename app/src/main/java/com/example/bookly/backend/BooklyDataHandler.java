@@ -24,6 +24,7 @@ public class BooklyDataHandler {
     private Book currentBookFromMyBooks;
     private boolean recyclerViewOnMyBooks;
     private Context context;
+    private List<FeedItem> feedItems;
 
     private BooklyDataHandler() {
     }
@@ -251,6 +252,14 @@ public class BooklyDataHandler {
         user.setUserName("");
         user.setPassword("");
         save();
+    }
+
+    public List<FeedItem> getFeedItems() {
+        return feedItems;
+    }
+
+    public void setFeedItems(List<FeedItem> feedItems) {
+        this.feedItems = feedItems;
     }
 
     //================================================================================
