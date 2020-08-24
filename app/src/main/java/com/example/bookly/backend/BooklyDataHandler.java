@@ -225,6 +225,7 @@ public class BooklyDataHandler {
             } else if (feedAction == FeedAction.REVIEW_ADDED) {
                 tmp.setReview(findReview(b));
             }
+            feedItems.add(tmp);
         }
     }
 
