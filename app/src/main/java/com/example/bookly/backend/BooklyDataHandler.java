@@ -301,6 +301,7 @@ public class BooklyDataHandler {
     public void resetData(){
         reviews.clear();
         books.clear();
+        feedItems.clear();
         user.setUserName("");
         user.setPassword("");
         save();
