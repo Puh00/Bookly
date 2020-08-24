@@ -1,7 +1,6 @@
 package com.example.bookly
 
 import android.annotation.SuppressLint
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.bookly.backend.Book
-import com.example.bookly.backend.BooklyDataHandler
-import com.example.bookly.backend.Review
+import com.example.bookly.backend.*
 import com.example.bookly.databinding.FragmentWriteAReviewBinding
 import kotlinx.android.synthetic.main.appbar_two.view.*
 import java.text.SimpleDateFormat
@@ -91,23 +88,33 @@ class WriteAReviewFragment : Fragment() {
 
     private fun initListeners() {
         binding.saveReviewButton.setOnClickListener {
+            var tempReview: Review
 
             if (!reviewExists) {
-                BooklyDataHandler.getInstance().addReview(
+                tempReview = BooklyDataHandler.getInstance().addReview(
                     currentBook,
                     binding.ratingBar.rating,
                     binding.reviewEditText.text.toString(),
                     Date()
+
                 )
+                BooklyDataHandler.getInstance().feedItems.add(FeedItem().apply {
+                    review = tempReview
+                    feedAction = FeedAction.REVIEW_ADDED
+                })
             } else {
                 //Edits review
-                BooklyDataHandler.getInstance().editReview(
+                tempReview = BooklyDataHandler.getInstance().editReview(
                     review,
                     currentBook,
                     binding.ratingBar.rating,
                     binding.reviewEditText.text.toString(),
                     Date()
                 )
+                BooklyDataHandler.getInstance().feedItems.add(FeedItem().apply {
+                    review = tempReview
+                    feedAction = FeedAction.REVIEW_EDITED
+                })
             }
             BooklyDataHandler.getInstance().save()
             backToMyReviews(view)

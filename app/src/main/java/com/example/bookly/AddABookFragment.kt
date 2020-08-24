@@ -2,7 +2,6 @@ package com.example.bookly
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,10 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.bookly.backend.Book
 import com.example.bookly.backend.BooklyDataHandler
+import com.example.bookly.backend.FeedAction
+import com.example.bookly.backend.FeedItem
 import com.example.bookly.databinding.FragmentAddABookBinding
 import kotlinx.android.synthetic.main.appbar_two.view.*
 
@@ -80,10 +82,17 @@ class AddABookFragment : Fragment() {
     }
 
     private fun addBook() {
-        BooklyDataHandler.getInstance().addBook(
+        val tempBook: Book = BooklyDataHandler.getInstance().addBook(
             binding.bookTitleTextView.text.toString(), binding.authorTextView.text.toString(),
             binding.descriptionTextView.text.toString(), binding.bookCoverImageView.drawable.toBitmap()
         )
+
+        //Update homePage
+        BooklyDataHandler.getInstance().feedItems.add(FeedItem().apply {
+            book = tempBook
+            feedAction = FeedAction.BOOK_ADDED
+        })
+
 
         BooklyDataHandler.getInstance().save()
     }
