@@ -226,9 +226,9 @@ public class BooklyDataHandler {
             tmp.setFeedAction(feedAction);
             tmp.setDate(new Date(feedItemData[i+1]));
             Book b = findBook(feedItemData[i+2]);
-            if (feedAction == FeedAction.BOOK_ADDED) {
+            if (feedAction == FeedAction.BOOK_ADDED || feedAction == FeedAction.BOOK_EDITED) {
                 tmp.setBook(b);
-            } else if (feedAction == FeedAction.REVIEW_ADDED) {
+            } else if (feedAction == FeedAction.REVIEW_ADDED || feedAction == FeedAction.REVIEW_EDITED) {
                 tmp.setReview(findReview(b));
             }
             feedItems.add(tmp);
