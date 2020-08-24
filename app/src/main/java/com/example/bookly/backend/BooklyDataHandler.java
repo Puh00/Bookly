@@ -132,8 +132,13 @@ public class BooklyDataHandler {
     private String getFormattedFeedItems() {
         StringBuilder sb = new StringBuilder();
         for (FeedItem fi : feedItems) {
-            sb.append(FeedAction.asString(fi.getFeedAction())).append(";").append(fi.getDate().toString()).append(";")
-                    .append(fi.getBook().getTitle()).append(";");
+            sb.append(FeedAction.asString(fi.getFeedAction())).append(";").append(fi.getDate().toString()).append(";");
+            if (fi.getBook() != null ) {
+                sb.append(fi.getBook().getTitle());
+            } else if (fi.getReview() != null ) {
+                sb.append(fi.getReview().getBook().getTitle());
+            }
+            sb.append(";");
         }
         return sb.toString();
     }

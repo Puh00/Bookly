@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
 
     private fun initRecyclerView(binding: FragmentHomeBinding){
         var recyclerView = binding.homePageRecyclerView
-        var homePageAdapter: HomePageAdapter = HomePageAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().feedItems)
+        var homePageAdapter: HomePageAdapter = HomePageAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().feedItems.asReversed())
 
         recyclerView.adapter = homePageAdapter
         recyclerView.layoutManager = LinearLayoutManager(activity!!.applicationContext)
