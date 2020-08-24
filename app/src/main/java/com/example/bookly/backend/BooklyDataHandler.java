@@ -47,6 +47,7 @@ public class BooklyDataHandler {
         reviews = new ArrayList<>();
         bookStatuses = new ArrayList<>();
         books = new ArrayList<>();
+        feedItems = new ArrayList<>();
     }
 
     //================================================================================
@@ -205,7 +206,7 @@ public class BooklyDataHandler {
     // booklybackend.Book logic
     //================================================================================
 
-    public void addBook(String title, String author, String description, Bitmap coverImage) {
+    public Book addBook(String title, String author, String description, Bitmap coverImage) {
 
         Book temporaryBook = new Book();
         temporaryBook.setTitle(title);
@@ -214,6 +215,8 @@ public class BooklyDataHandler {
         temporaryBook.setCoverImage(coverImage);
 
         books.add(temporaryBook);
+
+        return temporaryBook;
     }
 
     public void removeBook(Book book) {
@@ -234,16 +237,22 @@ public class BooklyDataHandler {
             book.setCoverImage(coverImage);
     }
 
-    public void addReview(Book book, float rating, String textReview, Date reviewDate) {
-        reviews.add(new Review(book, rating, textReview, reviewDate));
+    public Review addReview(Book book, float rating, String textReview, Date reviewDate) {
+        Review tempReview = new Review(book, rating, textReview, reviewDate);
+        reviews.add(tempReview);
+
+        return tempReview;
     }
 
-    public void editReview(Review review, Book book, float rating, String textReview, Date reviewDate){
+    public Review editReview(Review review, Book book, float rating, String textReview, Date reviewDate){
+        Review tempReview = null;
         if(reviews.contains(review)){
             reviews.remove(review);
 
             addReview(book, rating, textReview, reviewDate);
+            tempReview = new Review(book, rating, textReview, reviewDate);
         }
+        return tempReview;
     }
 
     public void resetData(){
@@ -261,6 +270,7 @@ public class BooklyDataHandler {
     public void setFeedItems(List<FeedItem> feedItems) {
         this.feedItems = feedItems;
     }
+
 
     //================================================================================
     // addABookFragment

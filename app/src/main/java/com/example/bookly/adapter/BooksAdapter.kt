@@ -1,8 +1,6 @@
 package com.example.bookly.adapter
 
 import android.content.Context
-import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +19,6 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
 
     private val CHOOSE_BOOK_RECYCLERVIEW: Int = 0
     private val MY_BOOKS_RECYCLERVIEW: Int = 1
-    private val TAG = "MyBooksAdapter"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
 
@@ -37,10 +34,7 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
                 return BookViewHolder(view)
             }
             else -> {
-                Log.e(TAG, "viewType error in OnCreateViewHolder")
-                val inflater = LayoutInflater.from(ct)
-                val view = inflater.inflate(R.layout.cardview_item_book, parent, false)
-                return BookViewHolder(view)
+                throw IllegalArgumentException("BOOKS ADAPTER ILLEGAL ARGUMENT")
             }
         }
     }
