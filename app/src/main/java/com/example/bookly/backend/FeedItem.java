@@ -7,7 +7,7 @@ public class FeedItem {
     private Book book;
     private Review review;
     private FeedAction feedAction;
-    private final Date date = new Date();
+    private Date date = new Date();
 
     public Book getBook() {
         return book;
@@ -35,5 +35,9 @@ public class FeedItem {
 
     public Date getDate() {
         return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

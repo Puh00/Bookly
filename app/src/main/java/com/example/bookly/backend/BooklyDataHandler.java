@@ -58,6 +58,7 @@ public class BooklyDataHandler {
         createNewFile("user");
         createNewFile("reviews");
         createNewFile("books");
+        createNewFile("feedItems");
 
         try {
             load();
@@ -127,12 +128,22 @@ public class BooklyDataHandler {
         return sb.toString();
     }
 
+    private String getFormattedFeedItems() {
+        StringBuilder sb = new StringBuilder();
+        for (FeedItem fi : feedItems) {
+            sb.append(FeedAction.asString(fi.getFeedAction())).append(";").append(fi.getDate().toString()).append(";")
+                    .append(fi.getBook().getTitle()).append(";");
+        }
+        return sb.toString();
+    }
+
     // save the necessary data to files
     public void save() {
         if (ioHandler != null) {
             ioHandler.writeTo("user", getFormattedUser());
             ioHandler.writeTo("books", getFormattedBooks());
             ioHandler.writeTo("reviews", getFormattedReviews());
+            ioHandler.writeTo("feedItems", getFormattedFeedItems());
         }
     }
 
@@ -183,6 +194,15 @@ public class BooklyDataHandler {
         return null;
     }
 
+    private Review findReview(Book book) {
+        for (Review r : reviews) {
+            if (r.getBook().getTitle().equals(book.getTitle())) {
+                return r;
+            }
+        }
+        return null;
+    }
+
     private void loadReviews() throws Exception {
         String[] reviewData = readFrom("reviews").split(";");
         for (int i = 0; reviewData.length - i > 3 ; i+=4) {
@@ -192,12 +212,29 @@ public class BooklyDataHandler {
 
     }
 
+    private void loadFeedItems() throws Exception {
+        String[] feedItemData = readFrom("feedItems").split(";");
+        for (int i = 0; feedItemData.length - i > 2; i+=3) {
+            FeedItem tmp = new FeedItem();
+            FeedAction feedAction = FeedAction.getFeedAction(feedItemData[i]);
+            tmp.setFeedAction(feedAction);
+            tmp.setDate(new Date(feedItemData[i+1]));
+            Book b = findBook(feedItemData[i+2]);
+            if (feedAction == FeedAction.BOOK_ADDED) {
+                tmp.setBook(b);
+            } else if (feedAction == FeedAction.REVIEW_ADDED) {
+                tmp.setReview(findReview(b));
+            }
+        }
+    }
+
     // loads all data into the backend
     public void load() throws Exception {
         if (ioHandler != null) {
             loadUser();
             loadBooks();
             loadReviews();
+            loadFeedItems();
         }
     }
 
