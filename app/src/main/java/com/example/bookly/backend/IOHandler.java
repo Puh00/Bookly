@@ -1,9 +1,12 @@
 package com.example.bookly.backend;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,6 +40,14 @@ public class IOHandler {
             } catch (IOException ignored) {}
         }
         return r;
+    }
+
+    public boolean writeBitmapTo(String filename, Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+        byte[] byteArray = stream.toByteArray();
+
+        return writeTo(filename, byteArray);
     }
 
     public boolean writeTo(String filename, String contents) {
@@ -77,6 +88,15 @@ public class IOHandler {
         }
 
         return stringBuilder.toString();
+    }
+
+    public Bitmap readAsBitmap(String filename) {
+        try {
+            byte[] byteArr = readAsByteArray(filename);
+            return BitmapFactory.decodeByteArray(byteArr, 0, byteArr.length);
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 
     public byte[] readAsByteArray(String filename) {

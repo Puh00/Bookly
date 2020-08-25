@@ -93,19 +93,12 @@ public class BooklyDataHandler {
         return user.getUserName() + ";" + user.getPassword() + ";";
     }
 
-    private void saveBookCover(Book book) {
-        if (book.getCoverImage() != null) {
-            String fileName = book.getTitle()+".booklybmp";
+    private void saveBookCover(Bitmap bookCover, String bookTitle) {
+        if (bookCover != null) {
+            String fileName = bookTitle + ".booklybmp";
             createNewFile(fileName);
-            Bitmap cover = book.getCoverImage();
 
-            // copy-pasted code, i don't know what it does
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            cover.compress(Bitmap.CompressFormat.JPEG, 50, stream);
-            byte[] byteArray = stream.toByteArray();
-           // cover.recycle();
-
-            ioHandler.writeTo(fileName, byteArray);
+            ioHandler.writeBitmapTo(fileName, bookCover, Bitmap.CompressFormat.JPEG, 50);
         }
     }
 
@@ -115,7 +108,7 @@ public class BooklyDataHandler {
             sb.append(b.getTitle()).append(";").append(b.getAuthor()).append(";")
                     .append(b.getDescription()).append(";");
 
-            saveBookCover(b);
+            saveBookCover(b.getCoverImage(), b.getTitle());
         }
         return sb.toString();
     }
@@ -134,11 +127,28 @@ public class BooklyDataHandler {
         for (FeedItem fi : feedItems) {
             sb.append(FeedAction.asString(fi.getFeedAction())).append(";").append(fi.getDate().toString()).append(";");
             if (fi.getBook() != null ) {
-                sb.append(fi.getBook().getTitle());
+                // saving the CURRENT STATE of the book to prevent side effects
+                sb.append(fi.getBook().getTitle()).append(";").append(fi.getBook().getAuthor())
+                    .append(";").append(fi.getBook().getDescription()).append(";");
+
+                saveBookCover(fi.getBook().getCoverImage(), fi.getDate().toString());
+
+                sb.append(";").append(";").append(";"); // append empty review data
             } else if (fi.getReview() != null ) {
-                sb.append(fi.getReview().getBook().getTitle());
+                // saving the CURRENT STATE of the book and review to prevent side effects
+                sb.append(fi.getReview().getBook().getTitle()).append(";")
+                    .append(fi.getReview().getBook().getAuthor()).append(";")
+                    .append(fi.getReview().getBook().getDescription()).append(";");
+
+                saveBookCover(fi.getReview().getBook().getCoverImage(), fi.getDate().toString());
+
+                sb.append(fi.getReview().getDate().toString()).append(";")
+                    .append(fi.getReview().getRating()).append(";")
+                    .append(fi.getReview().getComment()).append(";");
+            } else {
+                // if neither book or review is non null, then something is wrong
+                sb.append(";;;;;;");
             }
-            sb.append(";");
         }
         return sb.toString();
     }
@@ -164,14 +174,8 @@ public class BooklyDataHandler {
 
     private Bitmap getBookCover(String bookTitle) {
         if (ioHandler.fileExists(bookTitle+".booklybmp")) {
-            Book book = findBook(bookTitle);
-            if (book != null) {
-                byte[] byteArr = ioHandler.readAsByteArray(bookTitle + ".booklybmp");
-                Bitmap cover = BitmapFactory.decodeByteArray(byteArr, 0, byteArr.length);
-                return cover;
-            }
+            return ioHandler.readAsBitmap(bookTitle+".booklybmp");
         }
-
         return null;
     }
 
@@ -220,16 +224,24 @@ public class BooklyDataHandler {
 
     private void loadFeedItems() throws Exception {
         String[] feedItemData = readFrom("feedItems").split(";");
-        for (int i = 0; feedItemData.length - i > 2; i+=3) {
+        for (int i = 0; feedItemData.length - i > 7; i+=8) {
             FeedItem tmp = new FeedItem();
+
             FeedAction feedAction = FeedAction.getFeedAction(feedItemData[i]);
             tmp.setFeedAction(feedAction);
+
             tmp.setDate(new Date(feedItemData[i+1]));
-            Book b = findBook(feedItemData[i+2]);
+
+            Book b = new Book();
+            b.setCoverImage(getBookCover(feedItemData[i+1]));
+            b.setTitle(feedItemData[i+2]);
+            b.setAuthor(feedItemData[i+3]);
+            b.setDescription(feedItemData[i+4]);
+
             if (feedAction == FeedAction.BOOK_ADDED || feedAction == FeedAction.BOOK_EDITED) {
                 tmp.setBook(b);
             } else if (feedAction == FeedAction.REVIEW_ADDED || feedAction == FeedAction.REVIEW_EDITED) {
-                tmp.setReview(findReview(b));
+                tmp.setReview(new Review(b, Float.parseFloat(feedItemData[i+6]), feedItemData[i+7], new Date(feedItemData[i+5])));
             }
             feedItems.add(tmp);
         }
