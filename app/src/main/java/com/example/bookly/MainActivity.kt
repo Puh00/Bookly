@@ -44,6 +44,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openDrawer() {
+        if(handler.profilePicture != null){
+            drawerLayout.nav_header_imageView.setImageDrawable(handler.profilePicture)
+        }else
+        {
+            drawerLayout.nav_header_imageView.setImageResource(R.drawable.default_profile_picture)
+        }
         updateNavHeaderUsername()
         drawerLayout.openDrawer(GravityCompat.START)
     }
