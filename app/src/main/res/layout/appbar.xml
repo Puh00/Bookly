@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="@android:color/white"
         tools:ignore="MissingConstraints">
 
@@ -24,26 +24,45 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="hint"
-            android:minLines="1"
+            android:layout_width="342dp"
+            android:layout_height="39dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Search books..."
             android:maxLines="1"
+            android:minLines="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.545" />
 
-        <Button
-            android:id="@+id/hamburgerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hamburger"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/hamburgerCard"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+            app:layout_constraintEnd_toStartOf="@+id/textInputEditText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/hamburgerButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/hamburger_sign"
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+                app:layout_constraintHorizontal_bias="0.09"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

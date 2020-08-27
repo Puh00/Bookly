@@ -6,4 +6,6 @@
     <color name="floating_action_bar">#8cc255</color>
     <color name="lightGray">#F4F4F4</color>
     <color name="red">#ff3b52</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>
