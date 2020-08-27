@@ -2,7 +2,6 @@ package com.example.bookly.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +22,7 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val inflater = LayoutInflater.from(ct)
-        val view = inflater.inflate(R.layout.item_cardview_review, parent, false)
+        val view = inflater.inflate(R.layout.feed_item_review, parent, false)
         return ReviewViewHolder(view)
     }
 

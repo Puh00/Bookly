@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
@@ -15,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="-17sp"/>
+            android:layout_marginTop="-43dp" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -33,11 +32,10 @@
 
                     <ImageView
                         android:id="@+id/bookCoverImageView"
-                        android:layout_width="100sp"
-                        android:layout_height="160sp"
+                        android:layout_width="125dp"
+                        android:layout_height="200dp"
                         android:layout_marginTop="48dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/no_cover_image" />
@@ -76,7 +74,7 @@
                         android:ems="10"
                         android:gravity="top|left"
                         android:hint="Write a description of the book..."
-                        android:inputType="textPersonName"
+                        android:inputType="textMultiLine"
                         android:textAlignment="viewStart"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

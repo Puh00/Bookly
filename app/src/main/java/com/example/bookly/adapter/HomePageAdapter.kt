@@ -31,7 +31,7 @@ class HomePageAdapter(var ct: Context, var feedData: List<FeedItem>) : RecyclerV
                 BookViewHolder(view)
             }
             REVIEW_ITEM ->{
-                val view = inflater.inflate(R.layout.item_cardview_review, parent, false)
+                val view = inflater.inflate(R.layout.feed_item_review, parent, false)
                 ReviewViewHolder(view)
             }
             else -> {

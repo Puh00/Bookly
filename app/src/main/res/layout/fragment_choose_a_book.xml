@@ -3,21 +3,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent">
 
         <include
             android:id="@+id/chooseABookAppBar"
             layout="@layout/appbar_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-17dp"/>
+            android:layout_marginTop="-43dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chooseABookRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="48dp">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_marginTop="48dp"></androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
 </layout>

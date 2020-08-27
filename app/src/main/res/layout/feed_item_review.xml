@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/myReview_cardView_book_image"
-            android:layout_width="120dp"
-            android:layout_height="160dp"
+            android:layout_width="107dp"
+            android:layout_height="170dp"
             android:layout_marginStart="16dp"
             android:background="#2d2d2d"
             app:layout_constraintBottom_toBottomOf="parent"

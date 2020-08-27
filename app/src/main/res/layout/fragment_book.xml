@@ -11,12 +11,12 @@
             layout="@layout/appbar_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-17dp"/>
+            android:layout_marginTop="-43dp" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="65dp"
             android:padding="10dp">
 
             <LinearLayout
@@ -28,7 +28,7 @@
                 <ImageView
                     android:id="@+id/fragmentBook_image"
                     android:layout_width="125dp"
-                    android:layout_height="170dp"
+                    android:layout_height="200dp"
                     android:background="#2d2d2d"
                     android:scaleType="centerCrop" />
 
@@ -50,6 +50,7 @@
                     android:padding="8dp"
                     android:text="Author" />
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,15 +58,23 @@
                     android:text="Book description"
                     android:textSize="18sp" />
 
-                <EditText
-                    android:id="@+id/fragmentBook_description"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@android:color/white"
-                    android:ems="10"
-                    android:gravity="top"
-                    android:hint="Description of the book..." />
+                    app:cardCornerRadius="20dp">
+
+                    <EditText
+                        android:id="@+id/fragmentBook_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="5dp"
+                        android:background="@android:color/white"
+                        android:ems="10"
+                        android:focusable="false"
+                        android:gravity="top"
+                        android:hint="Description of the book..." />
+                </androidx.cardview.widget.CardView>
 
 
             </LinearLayout>

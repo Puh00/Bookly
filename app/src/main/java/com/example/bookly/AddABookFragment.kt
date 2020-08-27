@@ -45,7 +45,7 @@ class AddABookFragment : Fragment() {
             } else {
                 Toast.makeText(
                     getActivity(),
-                    "You dumb fuck", Toast.LENGTH_LONG
+                    "Please enter the required fields", Toast.LENGTH_LONG
                 ).show();
             }
 
