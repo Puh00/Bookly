@@ -9,6 +9,7 @@ import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.databinding.FragmentMyProfileBinding
 import kotlinx.android.synthetic.main.appbar_two.view.*
@@ -50,8 +51,12 @@ class MyProfileFragment : Fragment() {
 
     private fun initAppBar() {
         val backButton = binding.myProfileAppBar.backButton
-        backButton.setOnClickListener { (activity as MainActivity).openDrawer() }
+        backButton.setOnClickListener { previousFragment() }
         binding.myProfileAppBar.currentFragment.text = "My Profile"
+    }
+
+    private fun previousFragment() {
+        this.findNavController().popBackStack()
     }
 
     private fun initListeners() {
