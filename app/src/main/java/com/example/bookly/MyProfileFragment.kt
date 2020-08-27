@@ -72,6 +72,7 @@ class MyProfileFragment : Fragment() {
 
                 BooklyDataHandler.getInstance().userName = binding.usernameEditText.text.toString()
                 binding.usernameTextView.text = BooklyDataHandler.getInstance().userName
+                BooklyDataHandler.getInstance().save()
             }
         }
 

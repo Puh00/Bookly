@@ -34,7 +34,7 @@ class MyBooksFragment : Fragment() {
     }
 
     private fun initAppBar(binding: FragmentMyBooksBinding) {
-        val hamburgerButton = binding.titlebar.hamburgerButton
+        val hamburgerButton = binding.myBooksAppBar.hamburgerButton
         hamburgerButton.setOnClickListener { (activity as MainActivity).openDrawer() }
     }
 

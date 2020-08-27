@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.nav_header.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,9 +35,16 @@ class MainActivity : AppCompatActivity() {
         handler.setContext(this)
     }
 
-
+    private fun updateNavHeaderUsername() {
+        if(handler.userName != null){
+            drawerLayout.nav_header_username.text = BooklyDataHandler.getInstance().userName.toString()
+        }else {
+            drawerLayout.nav_header_username.text = "Username"
+        }
+    }
 
     fun openDrawer() {
+        updateNavHeaderUsername()
         drawerLayout.openDrawer(GravityCompat.START)
     }
 

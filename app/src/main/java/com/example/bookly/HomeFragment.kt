@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initAppBar(binding: FragmentHomeBinding) {
-        val hamburgerButton = binding.titlebar.hamburgerButton
+        val hamburgerButton = binding.homeAppBar.hamburgerButton
         hamburgerButton.setOnClickListener { (activity as MainActivity).openDrawer() }
     }
 
