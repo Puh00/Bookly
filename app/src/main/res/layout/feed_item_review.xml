@@ -79,6 +79,7 @@
                 android:isIndicator="true"
                 android:scaleX="0.5"
                 android:scaleY="0.5"
+                android:progressTint="@color/gold"
                 app:layout_constraintBottom_toTopOf="@+id/myReviews_cardView_review"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
