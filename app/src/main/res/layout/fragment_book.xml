@@ -4,7 +4,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorLighter">
 
         <include
             android:id="@+id/chooseABookAppBar"
@@ -45,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Book Title"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -56,15 +57,15 @@
                     android:background="#edecec"
                     android:padding="8dp"
                     android:text="Author"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:text="Book description"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -75,7 +76,7 @@
                     <EditText
                         android:id="@+id/fragmentBook_description"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="180dp"
                         android:layout_margin="5dp"
                         android:background="@android:color/white"
                         android:ems="10"
