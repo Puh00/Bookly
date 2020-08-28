@@ -26,14 +26,15 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/round_button"
                 android:text="@string/reset_data"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.089" />
+                android:padding="30dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

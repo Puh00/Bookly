@@ -312,7 +312,8 @@ public class BooklyDataHandler {
         reviews.clear();
         books.clear();
         feedItems.clear();
-        user.setUserName("");
+        user.setUserName("USERNAME");
+        user.setProfilePicture(null);
         user.setPassword("");
         save();
     }
