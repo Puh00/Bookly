@@ -25,7 +25,7 @@
     <br />
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/Puh00/Bookly/releases/tag/v1.0">View Demo</a>
     ·
     <a href="https://github.com/Puh00/Bookly/issues">Report Bug</a>
     ·
