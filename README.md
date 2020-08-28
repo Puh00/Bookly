@@ -54,7 +54,7 @@
 ## About The Project
 
 
-A summer project which was done during the summer after freshman year. The aim of this project was to freshen up our programming skills and to run a small scale software project in order to expand our repertoire. 
+A project which was done during the summer after freshman year. The aim of this project was to freshen up our programming skills and to run a small scale software project in order to expand our repertoire. 
 
 <!-- Screenshots -->
 ### Screenshots
