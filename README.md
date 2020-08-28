@@ -43,8 +43,6 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Roadmap](#roadmap)
-* [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -55,32 +53,39 @@
 ## About The Project
 
 <p align="center">
-  <img  src="Documents/images/bookly_1.PNG">
-  <img  src="Documents/images/bookly_2.PNG">
+  <img  src="Documents/images/home_page.PNG">
+  <img  src="Documents/images/add_a_book.PNG">
 </p>
 <p align="center">
-Homepage to the left, detailed view of book to the right.
-</p>
-
-<p align="center">
-  <img  src="Documents/images/bookly_3.PNG">
-  <img  src="Documents/images/bookly_4.PNG">
-</p>
-<p align="center">
-An overview of the books to the left, reviews on the right.
+Homepage to the left, adding a book to the right.
 </p>
 
 <p align="center">
-  <img  src="Documents/images/bookly_5.PNG">
-  <img  src="Documents/images/bookly_6.PNG">
+  <img  src="Documents/images/book.PNG">
+  <img  src="Documents/images/detailed_view_book.PNG">
 </p>
 <p align="center">
-WriteAReview to the left, profile page to the right.
+An overview of the books to the left and a detailed view of the book to the right.
 </p>
 
 <p align="center">
-  <img  src="Documents/images/bookly_7.PNG">
-  <img  src="Documents/images/bookly_8.PNG">
+  <img  src="Documents/images/reviews.PNG">
+  <img  src="Documents/images/write_a_review.PNG">
+</p>
+<p align="center">
+Reviews to the left, write a review to the right.
+</p>
+
+<p align="center">
+   <img src="Documents/images/profile.png">
+</p>
+<p align="center">
+  Profile page.
+</p>
+
+<p align="center">
+  <img  src="Documents/images/side_panel.PNG">
+  <img  src="Documents/images/settings.PNG">
 </p>
 <p align="center">
 Sidepanel which can be accessed through hamburger button on the left, settings page to the right.
@@ -114,27 +119,6 @@ git clone https://github.com/Puh00/Bookly.git
 ```
 2. Build the application with.
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/Puh00/Bookly/issues) for a list of proposed features (and known issues).
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
 <!-- LICENSE -->
 ## License
 
@@ -162,21 +146,3 @@ Project Link: [https://github.com/Puh00/Bookly](https://github.com/Puh00/Bookly)
 * [respect ppy](https://github.com/ppy)
 
 
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=flat-square
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=flat-square
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=flat-square
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=flat-square
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
-[product-screenshot]: images/screenshot.png
