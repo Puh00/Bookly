@@ -125,7 +125,7 @@ class WriteAReviewFragment : Fragment() {
         currentBook = BooklyDataHandler.getInstance().currentBookForReview
 
         for (r: Review in BooklyDataHandler.getInstance().reviews) {
-            if (currentBook == r.book) {
+            if (currentBook.title == r.book.title) {
                 review = r
                 return true
             }

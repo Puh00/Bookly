@@ -10,8 +10,10 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookly.R
+import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.backend.FeedAction
 import com.example.bookly.backend.FeedItem
 import java.text.SimpleDateFormat
@@ -43,8 +45,12 @@ class HomePageAdapter(var ct: Context, var feedData: List<FeedItem>) : RecyclerV
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(getItemViewType(position) == BOOK_ITEM){
             (holder as BookViewHolder).setBookData(ct, feedData[position], timeFormat)
+            holder.setBookListener(feedData, position)
+
         }else if(getItemViewType(position) == REVIEW_ITEM){
             (holder as ReviewViewHolder).setReviewData(ct, feedData[position], timeFormat)
+
+            holder.setReviewListener(feedData, position)
         }
     }
 
@@ -88,6 +94,14 @@ class HomePageAdapter(var ct: Context, var feedData: List<FeedItem>) : RecyclerV
 
             book_description.setText(feedItem.book.description.toString())
         }
+
+        fun setBookListener(feedData: List<FeedItem>, position: Int) {
+            //Listener
+                cardView.setOnClickListener { view: View ->
+                BooklyDataHandler.getInstance().currentBookFromMyBooks = feedData[position].book
+                view.findNavController().navigate(R.id.action_homeFragment_to_bookFragment)
+            }
+        }
     }
 
     class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -117,6 +131,13 @@ class HomePageAdapter(var ct: Context, var feedData: List<FeedItem>) : RecyclerV
             }
             ratingBar.rating = feedItem.review.rating
             review_text.setText(feedItem.review.comment.toString())
+        }
+
+        fun setReviewListener(feedData: List<FeedItem>, position: Int) {
+            cardView.setOnClickListener { view: View ->
+                BooklyDataHandler.getInstance().currentBookForReview = feedData[position].review.book
+                view.findNavController().navigate(R.id.action_homeFragment_to_writeAReviewFragment)
+            }
         }
     }
 }
