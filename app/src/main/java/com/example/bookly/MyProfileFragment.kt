@@ -1,5 +1,6 @@
 package com.example.bookly
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
+import androidx.core.graphics.drawable.toBitmap
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -40,12 +42,16 @@ class MyProfileFragment : Fragment() {
 
     private fun initData() {
         binding.usernameTextView.text = BooklyDataHandler.getInstance().userName
-        binding.numberOfBooksTextView.text =
-            BooklyDataHandler.getInstance().numberOfBooks().toString()
+        binding.numberOfBooksTextView.text = if (BooklyDataHandler.getInstance().numberOfBooks() == 1) {
+            "1 book"
+        } else {
+            BooklyDataHandler.getInstance().numberOfBooks().toString()+" books"
+        }
+
         if (BooklyDataHandler.getInstance().profilePicture == null) {
             binding.profilePictureImageView.setImageResource(R.drawable.default_profile_picture)
         } else {
-            binding.profilePictureImageView.setImageDrawable(BooklyDataHandler.getInstance().profilePicture)
+            binding.profilePictureImageView.setImageBitmap(BooklyDataHandler.getInstance().profilePicture)
         }
     }
 
@@ -95,7 +101,7 @@ class MyProfileFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
             binding.profilePictureImageView.setImageURI(data?.data) // handle chosen image
-            BooklyDataHandler.getInstance().profilePicture = binding.profilePictureImageView.drawable
+            BooklyDataHandler.getInstance().profilePicture = binding.profilePictureImageView.drawable.toBitmap()
         }
     }
 
