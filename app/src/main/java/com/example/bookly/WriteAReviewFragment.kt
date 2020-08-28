@@ -73,7 +73,7 @@ class WriteAReviewFragment : Fragment() {
             binding.reviewBookTitleTextView.text = book.title
             binding.reviewBookAuthorTextView.text = book.author
 
-            binding.reviewDateTextView.text = timeFormat.format(currentDate).toString()
+            binding.reviewDateTextView.text = "Review added:     " + timeFormat.format(currentDate).toString()
         } else {
             previousFragment()
             Toast.makeText(activity, "currentBookForReview is null", Toast.LENGTH_LONG).show()

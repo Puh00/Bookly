@@ -3,6 +3,8 @@
     <color name="colorPrimary">#558080</color>
     <color name="colorPrimaryDark">#396c6c</color>
     <color name="colorAccent">#b1c4c4</color>
+    <color name="colorLighter">#EAFEFC</color>
+
     <color name="floating_action_bar">#8cc255</color>
     <color name="lightGray">#F4F4F4</color>
     <color name="red">#ff3b52</color>
