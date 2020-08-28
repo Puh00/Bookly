@@ -21,9 +21,7 @@
   <h1 align="center">Bookly</h3>
 
   <p align="center">
-    An android application whose purpose is to serve as a library. Users can store books and reviews of the book that they've read. 
-    <br />
-    <br />
+    An android application whose purpose is to serve as a library. Users can not only store books, but also reviews of the books that they've read. 
     <br />
     <a href="https://github.com/Puh00/Bookly/releases/tag/v1.0">View Demo</a>
     ·
@@ -39,6 +37,7 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
+  * [Screenshots](#screenshots)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
@@ -52,25 +51,30 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+
+A summer project which was done during the summer after freshman year. The aim of this project was to freshen up our programming skills and to run a small scale software project in order to expand our repertoire. 
+
+<!-- Screenshots -->
+### Screenshots
 <p align="center">
-  <img  src="Documents/images/home_page.PNG">
-  <img  src="Documents/images/add_a_book.PNG">
+  <img  src="Documents/images/home_page.png">
+  <img  src="Documents/images/add_a_book.png">
 </p>
 <p align="center">
 Homepage to the left, adding a book to the right.
 </p>
 
 <p align="center">
-  <img  src="Documents/images/book.PNG">
-  <img  src="Documents/images/detailed_view_book.PNG">
+  <img  src="Documents/images/books.png">
+  <img  src="Documents/images/detailed_view_book.png">
 </p>
 <p align="center">
 An overview of the books to the left and a detailed view of the book to the right.
 </p>
 
 <p align="center">
-  <img  src="Documents/images/reviews.PNG">
-  <img  src="Documents/images/write_a_review.PNG">
+  <img  src="Documents/images/reviews.png">
+  <img  src="Documents/images/write_a_review.png">
 </p>
 <p align="center">
 Reviews to the left, write a review to the right.
@@ -84,11 +88,11 @@ Reviews to the left, write a review to the right.
 </p>
 
 <p align="center">
-  <img  src="Documents/images/side_panel.PNG">
-  <img  src="Documents/images/settings.PNG">
+  <img  src="Documents/images/side_panel.png">
+  <img  src="Documents/images/settings.png">
 </p>
 <p align="center">
-Sidepanel which can be accessed through hamburger button on the left, settings page to the right.
+Sidepanel which can be accessed through hamburger button on the top-left, settings page to the right.
 </p>
 
 
@@ -106,9 +110,9 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* Android Studio and its emulator.
+* Android Studio.
 ```sh
-Install android 30 sdk.
+Minimum android 30 sdk.
 ```
 
 ### Installation
@@ -117,7 +121,7 @@ Install android 30 sdk.
 ```sh
 git clone https://github.com/Puh00/Bookly.git
 ```
-2. Build the application with.
+2. Build the application with the in-built emulator (preferably 'Pixel 3a').
 
 <!-- LICENSE -->
 ## License
@@ -144,5 +148,3 @@ Project Link: [https://github.com/Puh00/Bookly](https://github.com/Puh00/Bookly)
 * [Developers Android](https://developer.android.com/docs/)
 * [Medium](https://medium.com/)
 * [respect ppy](https://github.com/ppy)
-
-
