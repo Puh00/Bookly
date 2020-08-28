@@ -2,10 +2,7 @@ package com.example.bookly.backend;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -90,15 +87,16 @@ public class BooklyDataHandler {
     }
 
     private String getFormattedUser() {
+        saveBitmap(user.getProfilePicture(),"userProfilePicture");
         return user.getUserName() + ";" + user.getPassword() + ";";
     }
 
-    private void saveBookCover(Bitmap bookCover, String bookTitle) {
-        if (bookCover != null) {
-            String fileName = bookTitle + ".booklybmp";
+    private void saveBitmap(Bitmap bitmap, String bitmapTitle) {
+        if (bitmap != null) {
+            String fileName = bitmapTitle + ".booklybmp";
             createNewFile(fileName);
 
-            ioHandler.writeBitmapTo(fileName, bookCover, Bitmap.CompressFormat.JPEG, 50);
+            ioHandler.writeBitmapTo(fileName, bitmap, Bitmap.CompressFormat.JPEG, 50);
         }
     }
 
@@ -108,7 +106,7 @@ public class BooklyDataHandler {
             sb.append(b.getTitle()).append(";").append(b.getAuthor()).append(";")
                     .append(b.getDescription()).append(";");
 
-            saveBookCover(b.getCoverImage(), b.getTitle());
+            saveBitmap(b.getCoverImage(), b.getTitle());
         }
         return sb.toString();
     }
@@ -131,7 +129,7 @@ public class BooklyDataHandler {
                 sb.append(fi.getBook().getTitle()).append(";").append(fi.getBook().getAuthor())
                     .append(";").append(fi.getBook().getDescription()).append(";");
 
-                saveBookCover(fi.getBook().getCoverImage(), fi.getDate().toString());
+                saveBitmap(fi.getBook().getCoverImage(), fi.getDate().toString());
 
                 sb.append(";").append(";").append(";"); // append empty review data
             } else if (fi.getReview() != null ) {
@@ -140,7 +138,7 @@ public class BooklyDataHandler {
                     .append(fi.getReview().getBook().getAuthor()).append(";")
                     .append(fi.getReview().getBook().getDescription()).append(";");
 
-                saveBookCover(fi.getReview().getBook().getCoverImage(), fi.getDate().toString());
+                saveBitmap(fi.getReview().getBook().getCoverImage(), fi.getDate().toString());
 
                 sb.append(fi.getReview().getDate().toString()).append(";")
                     .append(fi.getReview().getRating()).append(";")
@@ -168,13 +166,14 @@ public class BooklyDataHandler {
         if (userInfo.length == 3) {
             user.setUserName(userInfo[0]);
             user.setPassword(userInfo[1]);
+            user.setProfilePicture(getBitmap("userProfilePicture"));
         }
     }
 
 
-    private Bitmap getBookCover(String bookTitle) {
-        if (ioHandler.fileExists(bookTitle+".booklybmp")) {
-            return ioHandler.readAsBitmap(bookTitle+".booklybmp");
+    private Bitmap getBitmap(String imageTitleWithoutExtension) {
+        if (ioHandler.fileExists(imageTitleWithoutExtension+".booklybmp")) {
+            return ioHandler.readAsBitmap(imageTitleWithoutExtension+".booklybmp");
         }
         return null;
     }
@@ -191,7 +190,7 @@ public class BooklyDataHandler {
         }
 
         for (Book b : books) {
-            b.setCoverImage(getBookCover(b.getTitle()));
+            b.setCoverImage(getBitmap(b.getTitle()));
         }
     }
 
@@ -233,7 +232,7 @@ public class BooklyDataHandler {
             tmp.setDate(new Date(feedItemData[i+1]));
 
             Book b = new Book();
-            b.setCoverImage(getBookCover(feedItemData[i+1]));
+            b.setCoverImage(getBitmap(feedItemData[i+1]));
             b.setTitle(feedItemData[i+2]);
             b.setAuthor(feedItemData[i+3]);
             b.setDescription(feedItemData[i+4]);
@@ -343,11 +342,11 @@ public class BooklyDataHandler {
         user.setUserName(username);
     }
 
-    public Drawable getProfilePicture() {
+    public Bitmap getProfilePicture() {
         return user.getProfilePicture();
     }
 
-    public void setProfilePicture(Drawable profilePicture) {
+    public void setProfilePicture(Bitmap profilePicture) {
         user.setProfilePicture(profilePicture);
     }
 

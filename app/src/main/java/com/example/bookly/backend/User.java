@@ -1,18 +1,19 @@
 package com.example.bookly.backend;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 public class User {
 
     private String userName = "PEKORA";
     private String password = "";
-    private Drawable profilePicture;
+    private Bitmap profilePicture;
 
-    public Drawable getProfilePicture() {
+    public Bitmap getProfilePicture() {
         return profilePicture;
     }
 
-    public void setProfilePicture(Drawable profilePicture) {
+    public void setProfilePicture(Bitmap profilePicture) {
         this.profilePicture = profilePicture;
     }
 
