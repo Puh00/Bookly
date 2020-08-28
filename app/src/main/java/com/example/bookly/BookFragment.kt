@@ -1,15 +1,16 @@
 package com.example.bookly
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.bookly.backend.Book
 import com.example.bookly.backend.BooklyDataHandler
 import com.example.bookly.databinding.FragmentBookBinding
+import kotlinx.android.synthetic.main.appbar_two.view.*
 
 class BookFragment : Fragment() {
 
@@ -28,6 +29,7 @@ class BookFragment : Fragment() {
         bookData = BooklyDataHandler.getInstance().currentBookFromMyBooks
 
         initData()
+        initAppBar()
 
         return binding.root
     }
@@ -41,5 +43,13 @@ class BookFragment : Fragment() {
         binding.fragmentBookBookTitle.text = bookData.title.toString()
         binding.fragmentBookAuthor.text = bookData.author
         binding.fragmentBookDescription.setText(bookData.description.toString())
+    }
+
+    private fun initAppBar(){
+        binding.fragmentBookAppBar.backButton.setOnClickListener{ previousFragment() }
+    }
+
+    private fun previousFragment(){
+        this.findNavController().popBackStack()
     }
 }

@@ -8,7 +8,7 @@
         android:background="@color/colorLighter">
 
         <include
-            android:id="@+id/chooseABookAppBar"
+            android:id="@+id/fragmentBook_appBar"
             layout="@layout/appbar_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Book Title"
-                    android:textSize="24sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <TextView
