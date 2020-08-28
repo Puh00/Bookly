@@ -47,6 +47,7 @@ class BookFragment : Fragment() {
 
     private fun initAppBar(){
         binding.fragmentBookAppBar.backButton.setOnClickListener{ previousFragment() }
+        binding.fragmentBookAppBar.currentFragment.text = bookData.title.toString()
     }
 
     private fun previousFragment(){
