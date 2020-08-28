@@ -84,7 +84,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:numStars="5"
-                    android:stepSize="1" />
+                    android:stepSize="1"
+                    android:progressTint="@color/gold"/>
 
                 <TextView
                     android:id="@+id/textView7"
