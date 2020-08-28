@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.appbar.view.*
 
 class HomeFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,7 +28,6 @@ class HomeFragment : Fragment() {
         initBottomNav(binding)
         initAppBar(binding)
         initRecyclerView(binding)
-
 
         return binding.root
     }
@@ -50,7 +48,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecyclerView(binding: FragmentHomeBinding){
-        var recyclerView = binding.homePageRecyclerView
+        val recyclerView = binding.homePageRecyclerView
         var homePageAdapter: HomePageAdapter = HomePageAdapter(activity!!.applicationContext, BooklyDataHandler.getInstance().feedItems.asReversed())
 
         recyclerView.adapter = homePageAdapter

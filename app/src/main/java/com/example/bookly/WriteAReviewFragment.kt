@@ -117,7 +117,13 @@ class WriteAReviewFragment : Fragment() {
                 })
             }
             BooklyDataHandler.getInstance().save()
-            backToMyReviews(view)
+
+            if(BooklyDataHandler.getInstance().isFromMyReviews){
+                backToMyReviews(view)
+            }else{
+                //Goes back to homepage
+                this.findNavController().popBackStack()
+            }
             BooklyDataHandler.getInstance().currentReview = null
         }
     }

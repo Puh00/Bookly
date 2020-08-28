@@ -21,6 +21,7 @@ public class BooklyDataHandler {
     private Book currentBookFromMyBooks;
     private Review currentReview;
     private boolean recyclerViewOnMyBooks;
+    private boolean fromMyReviews;
     private Context context;
     private List<FeedItem> feedItems;
 
@@ -330,6 +331,14 @@ public class BooklyDataHandler {
 
     public void setCurrentReview(Review currentReview) {
         this.currentReview = currentReview;
+    }
+
+    public boolean isFromMyReviews() {
+        return fromMyReviews;
+    }
+
+    public void setFromMyReviews(boolean fromMyReviews) {
+        this.fromMyReviews = fromMyReviews;
     }
 
     //================================================================================
