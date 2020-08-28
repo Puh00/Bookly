@@ -102,6 +102,7 @@ class MyProfileFragment : Fragment() {
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
             binding.profilePictureImageView.setImageURI(data?.data) // handle chosen image
             BooklyDataHandler.getInstance().profilePicture = binding.profilePictureImageView.drawable.toBitmap()
+            BooklyDataHandler.getInstance().save()
         }
     }
 
