@@ -19,7 +19,9 @@ public class BooklyDataHandler {
     private List<Book> books;
     private Book currentBookForReview;
     private Book currentBookFromMyBooks;
+    private Review currentReview;
     private boolean recyclerViewOnMyBooks;
+    private boolean fromMyReviews;
     private Context context;
     private List<FeedItem> feedItems;
 
@@ -299,14 +301,11 @@ public class BooklyDataHandler {
     }
 
     public Review editReview(Review review, Book book, float rating, String textReview, Date reviewDate){
-        Review tempReview = null;
-        if(reviews.contains(review)){
-            reviews.remove(review);
-
-            addReview(book, rating, textReview, reviewDate);
-            tempReview = new Review(book, rating, textReview, reviewDate);
+        if(reviews.contains(findReview(review.getBook()))){
+            reviews.remove(findReview(review.getBook()));
         }
-        return tempReview;
+
+        return addReview(book, rating, textReview, reviewDate);
     }
 
     public void resetData(){
@@ -326,6 +325,21 @@ public class BooklyDataHandler {
         this.feedItems = feedItems;
     }
 
+    public Review getCurrentReview() {
+        return currentReview;
+    }
+
+    public void setCurrentReview(Review currentReview) {
+        this.currentReview = currentReview;
+    }
+
+    public boolean isFromMyReviews() {
+        return fromMyReviews;
+    }
+
+    public void setFromMyReviews(boolean fromMyReviews) {
+        this.fromMyReviews = fromMyReviews;
+    }
 
     //================================================================================
     // addABookFragment

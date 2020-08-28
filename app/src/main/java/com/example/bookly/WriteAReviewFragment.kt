@@ -117,19 +117,25 @@ class WriteAReviewFragment : Fragment() {
                 })
             }
             BooklyDataHandler.getInstance().save()
-            backToMyReviews(view)
+
+            if(BooklyDataHandler.getInstance().isFromMyReviews){
+                backToMyReviews(view)
+            }else{
+                //Goes back to homepage
+                this.findNavController().popBackStack()
+            }
+            BooklyDataHandler.getInstance().currentReview = null
         }
     }
 
     private fun doesReviewExist(): Boolean {
         currentBook = BooklyDataHandler.getInstance().currentBookForReview
 
-        for (r: Review in BooklyDataHandler.getInstance().reviews) {
-            if (currentBook.title == r.book.title) {
-                review = r
-                return true
-            }
+        if(BooklyDataHandler.getInstance().currentReview != null){
+            review = BooklyDataHandler.getInstance().currentReview
+            return true
         }
+
         return false
     }
 

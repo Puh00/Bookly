@@ -11,29 +11,18 @@
         android:background="@android:color/white"
         tools:ignore="MissingConstraints">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.050000012">
-
-        </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
-            android:layout_width="342dp"
-            android:layout_height="39dp"
+            android:layout_width="288dp"
+            android:layout_height="38dp"
             android:layout_marginEnd="16dp"
             android:hint="Search books..."
             android:maxLines="1"
             android:minLines="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.545" />
+            app:layout_constraintStart_toEndOf="@+id/hamburgerCard"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/hamburgerCard"
@@ -41,10 +30,10 @@
             android:layout_height="45dp"
             app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textInputEditText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardElevation="15dp">
+            app:cardElevation="15dp"
+            android:layout_marginStart="10dp">
 
             <Button
                 android:id="@+id/hamburgerButton"

@@ -32,6 +32,7 @@ class ReviewsAdapter(var ct: Context, var reviewData: List<Review>) :
         //Listeners
         holder.cardView.setOnClickListener { view: View ->
             BooklyDataHandler.getInstance().currentBookForReview = reviewData[position].book
+            BooklyDataHandler.getInstance().currentReview = reviewData[position]
             view.findNavController().navigate(R.id.action_myReviewsFragment_to_writeAReviewFragment)
         }
     }

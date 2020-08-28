@@ -57,6 +57,7 @@ class BooksAdapter(var ct: Context, var bookData: List<Book>) :
         } else if (getItemViewType(position) == CHOOSE_BOOK_RECYCLERVIEW) {
             //chooseBookFragment
             holder.cardView.setOnClickListener { view: View ->
+                BooklyDataHandler.getInstance().isFromMyReviews = true
                 BooklyDataHandler.getInstance().currentBookForReview = bookData[position]
                 view.findNavController().navigate(R.id.action_chooseABookFragment_to_writeAReviewFragment)
             }
