@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Bookly</string>
     <string name="hamburger_sign">≡</string>
+    <string name="reset_data">RESET DATA</string>
+    <string name="save_review">Save Review</string>
 </resources>
