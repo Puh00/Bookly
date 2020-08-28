@@ -136,6 +136,7 @@ class HomePageAdapter(var ct: Context, var feedData: List<FeedItem>) : RecyclerV
         fun setReviewListener(feedData: List<FeedItem>, position: Int) {
             cardView.setOnClickListener { view: View ->
                 BooklyDataHandler.getInstance().currentBookForReview = feedData[position].review.book
+                BooklyDataHandler.getInstance().currentReview = feedData[position].review
                 view.findNavController().navigate(R.id.action_homeFragment_to_writeAReviewFragment)
             }
         }
