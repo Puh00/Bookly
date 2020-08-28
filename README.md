@@ -23,11 +23,13 @@
   <p align="center">
     An android application whose purpose is to serve as a library. Users can not only store books, but also reviews of the books that they've read. 
     <br />
+      <br />
     <a href="https://github.com/Puh00/Bookly/releases/tag/v1.0">View Demo</a>
     ·
     <a href="https://github.com/Puh00/Bookly/issues">Report Bug</a>
     ·
     <a href="https://github.com/Puh00/Bookly/issues">Request Feature</a>
+      <br />
   </p>
 </p>
 
@@ -126,7 +128,7 @@ git clone https://github.com/Puh00/Bookly.git
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/Puh00/Bookly/blob/master/LICENSE) for more information.
 
 
 
