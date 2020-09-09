@@ -137,7 +137,7 @@ Distributed under the MIT License. See [`LICENSE`](https://github.com/Puh00/Book
 
 Puh00 - [Github](https://github.com/Puh00)
 
-kusuoki (yn) - [Github](https://github.com/kusuoki)
+yenanw (yn) - [Github](https://github.com/yenanw)
 
 Project Link: [https://github.com/Puh00/Bookly](https://github.com/Puh00/Bookly)
 
